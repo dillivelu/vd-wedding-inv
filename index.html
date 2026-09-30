@@ -73,7 +73,7 @@ body.modal-active {
 }
 
 /* =========================================================
-   HERO SECTION (MATCHING UPLOADED DESIGN)
+   HERO SECTION (MATCHING TARGET DESIGN)
    ========================================================= */
 .hero {
     min-height: 100vh;
@@ -83,86 +83,93 @@ body.modal-active {
     text-align: center;
     padding: 60px 20px;
     position: relative;
-    background-color: #F8EFE0;
-    background-image: radial-gradient(#E8D9C5 1px, transparent 1px);
-    background-size: 24px 24px;
+    background-color: #FAF4E5;
+    background-image: radial-gradient(#E8D9C5 1.5px, transparent 1.5px);
+    background-size: 28px 24px;
     overflow: hidden;
 }
 
-/* Mandap / Arch Watermark Background */
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, rgba(248,239,224,0) 70%);
-    pointer-events: none;
-}
-
-/* Side Banana Leaves Representation */
-.side-leaf {
+/* Left & Right Banana Trees with Bells */
+.hero-tree {
     position: absolute;
     top: 0;
-    width: 180px;
-    height: 100%;
-    background: linear-gradient(180deg, #3A7D2C 0%, #2E6023 60%, #1E4016 100%);
-    opacity: 0.85;
+    bottom: 0;
+    width: clamp(140px, 22vw, 320px);
+    background-repeat: no-repeat;
+    background-size: contain;
     pointer-events: none;
+    z-index: 2;
 }
-.side-leaf.left {
-    left: -60px;
-    border-radius: 0 100% 100% 0 / 0 50% 50% 0;
-    box-shadow: 15px 0 30px rgba(0,0,0,0.15);
+.hero-tree.left {
+    left: 0;
+    background-position: left top;
+    background-image: url('https://png.pngtree.com/png-clipart/20230914/original/pngtree-indian-wedding-banana-tree-decoration-vector-png-image_12151608.png');
 }
-.side-leaf.right {
-    right: -60px;
-    border-radius: 100% 0 0 100% / 50% 0 0 50%;
-    box-shadow: -15px 0 30px rgba(0,0,0,0.15);
+.hero-tree.right {
+    right: 0;
+    background-position: right top;
+    transform: scaleX(-1);
+    background-image: url('https://png.pngtree.com/png-clipart/20230914/original/pngtree-indian-wedding-banana-tree-decoration-vector-png-image_12151608.png');
 }
 
-/* Hanging Toran / Floral Garlands */
-.hanging-garlands {
+/* Top Hanging Floral Toran Garlands */
+.hero-garland {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 80px;
-    background: repeating-linear-gradient(90deg, 
-        transparent, transparent 40px, 
-        #D9383A 40px, #D9383A 50px, 
-        #FFD700 50px, #FFD700 60px);
-    opacity: 0.7;
+    height: 120px;
+    background-image: url('https://png.pngtree.com/png-clipart/20230912/original/pngtree-marigold-flower-garland-toran-hanging-vector-png-image_11048882.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: top center;
     pointer-events: none;
+    z-index: 3;
 }
 
-/* Hero Main Content Box */
+/* Bottom Corner Brass Lamps (Diya / Kuthuvilakku) */
+.hero-lamp {
+    position: absolute;
+    bottom: 0;
+    width: clamp(100px, 15vw, 220px);
+    height: clamp(180px, 28vw, 380px);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    pointer-events: none;
+    z-index: 3;
+}
+.hero-lamp.left {
+    left: 10px;
+    background-image: url('https://png.pngtree.com/png-clipart/20230914/original/pngtree-brass-diya-oil-lamp-south-indian-wedding-decoration-png-image_12151610.png');
+}
+.hero-lamp.right {
+    right: 10px;
+    background-image: url('https://png.pngtree.com/png-clipart/20230914/original/pngtree-brass-diya-oil-lamp-south-indian-wedding-decoration-png-image_12151610.png');
+}
+
+/* Hero Center Content */
 .hero-content {
     position: relative;
     z-index: 5;
-    max-width: 750px;
+    max-width: 680px;
     margin: 0 auto;
 }
 
-/* Ganesha Icon Styling */
-.ganesha-icon {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.ganesha-icon svg {
-    width: 100%;
-    height: 100%;
-    fill: var(--gold);
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+/* Detailed Golden Ganesha Icon */
+.ganesha-img {
+    width: clamp(80px, 12vw, 120px);
+    height: auto;
+    margin: 0 auto 12px;
+    display: block;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.15));
 }
 
 .sub-title {
     font-size: 13px;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: #6B4E28;
+    color: #5B0E14;
     margin-bottom: 12px;
     font-weight: 600;
 }
@@ -207,7 +214,7 @@ body.modal-active {
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
-/* Custom Shaped Buttons like Uploaded Image */
+/* Custom Shaped Buttons */
 .hero-btn {
     display: inline-block;
     border: 2px solid var(--gold);
@@ -216,7 +223,7 @@ body.modal-active {
     padding: 12px 30px;
     border-radius: 50px;
     text-decoration: none;
-    margin: 10px 8px;
+    margin: 8px 6px;
     box-shadow: 0 6px 18px rgba(91, 14, 20, 0.35);
     cursor: pointer;
     font-size: 16px;
@@ -378,8 +385,7 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
 footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 30px 18px; }
 
 @media(max-width: 600px) {
-    .side-leaf { width: 100px; }
-    .hero-btn { width: 80%; margin: 8px auto; }
+    .hero-btn { width: 85%; margin: 8px auto; }
 }
 </style>
 </head>
@@ -413,20 +419,18 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
 <!-- Printable / Downloadable Card Area -->
 <div id="downloadableCard">
 
-    <!-- HERO SECTION (REDESIGNED BASED ON UPLOADED IMAGE) -->
+    <!-- HERO SECTION -->
     <header class="hero" id="home">
-        <!-- Visual Accents -->
-        <div class="side-leaf left"></div>
-        <div class="side-leaf right"></div>
-        <div class="hanging-garlands"></div>
+        <!-- Graphic Overlays -->
+        <div class="hero-garland"></div>
+        <div class="hero-tree left"></div>
+        <div class="hero-tree right"></div>
+        <div class="hero-lamp left"></div>
+        <div class="hero-lamp right"></div>
 
         <div class="hero-content">
-            <!-- Lord Ganesha Vector Icon -->
-            <div class="ganesha-icon">
-                <svg viewBox="0 0 100 100">
-                    <path d="M50,15 C45,15 40,18 38,22 C36,20 32,18 28,20 C24,22 23,27 25,31 C27,35 32,38 35,36 C35,42 32,48 28,52 C26,54 26,58 30,58 C34,58 40,52 44,46 C46,50 48,56 48,65 C48,72 45,78 40,82 C38,84 40,88 43,87 C50,85 55,75 55,65 C55,54 52,48 50,44 C54,42 62,38 65,30 C68,22 62,15 50,15 Z M50,22 C56,22 58,26 56,30 C54,34 48,36 45,34 C46,28 48,22 50,22 Z"/>
-                </svg>
-            </div>
+            <!-- Golden Lord Ganesha Image -->
+            <img class="ganesha-img" src="https://png.pngtree.com/png-clipart/20230914/original/pngtree-golden-lord-ganesha-vector-illustration-png-image_12151609.png" alt="Lord Ganesha">
 
             <div class="orn-line">✦</div>
             <p class="sub-title">WEDDING INVITATION</p>
