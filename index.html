@@ -73,7 +73,7 @@ body.modal-active {
 }
 
 /* =========================================================
-   HERO SECTION (VECTOR EMBEDDED - GUARANTEED DISPLAY)
+   HERO SECTION (USING YOUR UPLOADED DESIGN IMAGES)
    ========================================================= */
 .hero {
     min-height: 100vh;
@@ -81,47 +81,49 @@ body.modal-active {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 70px 20px;
+    padding: 80px 20px;
     position: relative;
-    background-color: #FAF2E3;
+    background-color: #FAF4E5;
     background-image: radial-gradient(#E8D9C5 1.5px, transparent 1.5px);
     background-size: 28px 28px;
     overflow: hidden;
 }
 
-/* Side Banana Trees Overlay */
-.tree-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: clamp(120px, 20vw, 280px);
-    pointer-events: none;
-    z-index: 2;
-}
-.tree-container.left { left: 0; }
-.tree-container.right { right: 0; transform: scaleX(-1); }
-
-/* Top Hanging Marigold Garland Toran */
-.garland-bar {
+/* Top Layer Floral Garland */
+.hero-top-garland {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 70px;
+    height: clamp(80px, 14vw, 150px);
+    background-image: url('Top layer design.jpg');
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: top center;
     pointer-events: none;
     z-index: 4;
 }
 
-/* Bottom Brass Lamp (Kuthuvilakku) Containers */
-.lamp-container {
+/* Side Pillar & Banana Leaf Framing */
+.hero-side-frame {
     position: absolute;
+    top: 0;
     bottom: 0;
-    width: clamp(90px, 14vw, 180px);
+    width: clamp(140px, 26vw, 360px);
+    background-repeat: no-repeat;
+    background-size: contain;
     pointer-events: none;
-    z-index: 4;
+    z-index: 3;
 }
-.lamp-container.left { left: 10px; }
-.lamp-container.right { right: 10px; transform: scaleX(-1); }
+.hero-side-frame.left {
+    left: 0;
+    background-position: left center;
+    transform: scaleX(-1); /* Flips image for left pillar */
+}
+.hero-side-frame.right {
+    right: 0;
+    background-position: right center;
+}
 
 /* Hero Center Content */
 .hero-content {
@@ -131,13 +133,14 @@ body.modal-active {
     margin: 0 auto;
 }
 
-.ganesha-svg {
-    width: clamp(80px, 12vw, 120px);
+/* Vinayagar Central Logo */
+.vinayagar-logo {
+    width: clamp(90px, 14vw, 140px);
     height: auto;
     margin: 0 auto 10px;
     display: block;
-    fill: var(--gold);
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+    mix-blend-mode: multiply;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
 .sub-title {
@@ -417,85 +420,19 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
 <!-- Printable / Downloadable Card Area -->
 <div id="downloadableCard">
 
-    <!-- HERO SECTION (EMBEDDED VECTOR DECORATIONS) -->
+    <!-- HERO SECTION -->
     <header class="hero" id="home">
-        
-        <!-- Top Garland Vector -->
-        <svg class="garland-bar" viewBox="0 0 1000 70" preserveAspectRatio="none">
-            <g fill="#D9383A">
-                <circle cx="50" cy="15" r="12"/><circle cx="150" cy="15" r="12"/><circle cx="250" cy="15" r="12"/><circle cx="350" cy="15" r="12"/><circle cx="450" cy="15" r="12"/><circle cx="550" cy="15" r="12"/><circle cx="650" cy="15" r="12"/><circle cx="750" cy="15" r="12"/><circle cx="850" cy="15" r="12"/><circle cx="950" cy="15" r="12"/>
-            </g>
-            <g fill="#FFD700">
-                <path d="M0,0 Q50,45 100,0 Q150,45 200,0 Q250,45 300,0 Q350,45 400,0 Q450,45 500,0 Q550,45 600,0 Q650,45 700,0 Q750,45 800,0 Q850,45 900,0 Q950,45 1000,0" fill="none" stroke="#FFD700" stroke-width="8"/>
-            </g>
-        </svg>
+        <!-- Top Floral Garland -->
+        <div class="hero-top-garland"></div>
 
-        <!-- Left Banana Tree Vector -->
-        <div class="tree-container left">
-            <svg viewBox="0 0 200 600" style="width:100%; height:100%;">
-                <!-- Banana Leaves -->
-                <path d="M10,300 C-40,180 30,50 150,100 C100,160 50,220 10,300 Z" fill="#2E6023"/>
-                <path d="M20,250 C-10,120 80,20 180,60 C130,130 70,190 20,250 Z" fill="#3A7D2C"/>
-                <path d="M30,350 C-20,250 40,150 160,200 C110,250 60,300 30,350 Z" fill="#254E1B"/>
-                <!-- Stem & Bananas -->
-                <rect x="10" y="200" width="25" height="400" fill="#224016" rx="10"/>
-                <g fill="#B2C225">
-                    <ellipse cx="40" cy="280" rx="12" ry="25" transform="rotate(-30 40 280)"/>
-                    <ellipse cx="50" cy="295" rx="12" ry="25" transform="rotate(-20 50 295)"/>
-                    <ellipse cx="45" cy="315" rx="12" ry="25" transform="rotate(-10 45 315)"/>
-                </g>
-            </svg>
-        </div>
-
-        <!-- Right Banana Tree Vector -->
-        <div class="tree-container right">
-            <svg viewBox="0 0 200 600" style="width:100%; height:100%;">
-                <path d="M10,300 C-40,180 30,50 150,100 C100,160 50,220 10,300 Z" fill="#2E6023"/>
-                <path d="M20,250 C-10,120 80,20 180,60 C130,130 70,190 20,250 Z" fill="#3A7D2C"/>
-                <path d="M30,350 C-20,250 40,150 160,200 C110,250 60,300 30,350 Z" fill="#254E1B"/>
-                <rect x="10" y="200" width="25" height="400" fill="#224016" rx="10"/>
-                <g fill="#B2C225">
-                    <ellipse cx="40" cy="280" rx="12" ry="25" transform="rotate(-30 40 280)"/>
-                    <ellipse cx="50" cy="295" rx="12" ry="25" transform="rotate(-20 50 295)"/>
-                    <ellipse cx="45" cy="315" rx="12" ry="25" transform="rotate(-10 45 315)"/>
-                </g>
-            </svg>
-        </div>
-
-        <!-- Left Kuthuvilakku Lamp -->
-        <div class="lamp-container left">
-            <svg viewBox="0 0 100 250" style="width:100%; height:auto;">
-                <!-- Flame -->
-                <path d="M50,15 C45,30 40,40 50,55 C60,40 55,30 50,15 Z" fill="#FF8C00"/>
-                <path d="M50,25 C47,35 45,40 50,50 C55,40 53,35 50,25 Z" fill="#FFD700"/>
-                <!-- Brass Lamp Body -->
-                <path d="M30,60 L70,60 L60,80 L40,80 Z" fill="#C99B42"/>
-                <rect x="46" y="80" width="8" height="110" fill="#D4AF37"/>
-                <ellipse cx="50" cy="130" rx="18" ry="6" fill="#B8860B"/>
-                <path d="M25,190 L75,190 L65,220 L35,220 Z" fill="#D4AF37"/>
-                <rect x="20" y="220" width="60" height="15" fill="#B8860B" rx="4"/>
-            </svg>
-        </div>
-
-        <!-- Right Kuthuvilakku Lamp -->
-        <div class="lamp-container right">
-            <svg viewBox="0 0 100 250" style="width:100%; height:auto;">
-                <path d="M50,15 C45,30 40,40 50,55 C60,40 55,30 50,15 Z" fill="#FF8C00"/>
-                <path d="M50,25 C47,35 45,40 50,50 C55,40 53,35 50,25 Z" fill="#FFD700"/>
-                <path d="M30,60 L70,60 L60,80 L40,80 Z" fill="#C99B42"/>
-                <rect x="46" y="80" width="8" height="110" fill="#D4AF37"/>
-                <ellipse cx="50" cy="130" rx="18" ry="6" fill="#B8860B"/>
-                <path d="M25,190 L75,190 L65,220 L35,220 Z" fill="#D4AF37"/>
-                <rect x="20" y="220" width="60" height="15" fill="#B8860B" rx="4"/>
-            </svg>
-        </div>
+        <!-- Left and Right Side Pillar/Leaf Design -->
+        <div class="hero-side-frame left" style="background-image: url('Left and right side design.jpg');"></div>
+        <div class="hero-side-frame right" style="background-image: url('Left and right side design.jpg');"></div>
 
         <!-- Main Hero Content -->
         <div class="hero-content">
-            <!-- Golden Lord Ganesha SVG Icon -->
-            <svg class="ganesha-svg" viewBox="0 0 100 100">
-                <path d="M50,12 C44,12 38,16 36,22 C33,19 28,17 23,20 C18,23 17,29 20,34 C23,39 29,42 33,39 C33,46 29,53 24,58 C21,61 22,66 26,66 C31,66 38,59 43,51 C45,56 48,63 48,74 C48,81 44,88 38,92 C35,94 38,98 42,97 C50,94 56,82 56,73 C56,61 52,54 50,49 C55,46 64,41 68,32 C72,22 64,12 50,12 Z M50,20 C57,20 59,25 57,29 C54,33 47,36 43,33 C45,26 48,20 50,20 Z"/>
-            </svg>
+            <!-- Vinayagar Logo -->
+            <img class="vinayagar-logo" src="Vinayagar.jpg" alt="Vinayagar Logo">
 
             <div class="orn-line">✦</div>
             <p class="sub-title">WEDDING INVITATION</p>
@@ -513,7 +450,7 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
         </div>
     </header>
 
-    <!-- Countdown Section (MOVED TOP ABOVE COUPLE SECTION) -->
+    <!-- Countdown Section -->
     <section>
         <h2 class="section-title">Counting Down To The Big Day</h2>
         <div class="countdown">
@@ -524,7 +461,7 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
         </div>
     </section>
 
-    <!-- NEW CONTENT SLIDE: BLESSINGS & INVITATION MESSAGE -->
+    <!-- Blessings & Invitation Message Section -->
     <section>
         <div class="quote-box">
             <p class="quote-tamil">“ மங்கலம் பொங்கும் நன்னாளினிலே... ”</p>
