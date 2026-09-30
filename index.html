@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#4A0E0B">
 <title>Vadivel & Dhivya — Wedding Invitation</title>
+
+<!-- Preload critical fonts for faster rendering -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <style>
 :root {
     --maroon: #4A0E0B;
@@ -38,21 +43,23 @@ body {
 }
 .murugan-open.closed { display: none; }
 .murugan-card {
-    max-width: 500px;
-    padding: 40px 24px;
+    max-width: 480px;
+    width: 100%;
+    padding: 30px 20px;
     border: 2px solid var(--gold);
     border-radius: 20px;
     background: #FFFAF0EF;
     box-shadow: 0 20px 60px rgba(77, 35, 30, 0.2);
 }
-.om-symbol { font-size: 60px; color: var(--maroon); line-height: 1; }
+.om-symbol { font-size: 50px; color: var(--maroon); line-height: 1; }
 .murugan-img-preview {
-    width: 180px;
-    height: 260px;
+    width: 160px;
+    height: 230px;
     object-fit: cover;
     border-radius: 12px;
-    border: 3px solid var(--gold);
+    border: 2px solid var(--gold);
     margin: 15px auto;
+    background-color: #f2e3d5;
 }
 
 /* Hero Section */
@@ -89,14 +96,14 @@ body {
 }
 .btn:hover { background: var(--gold); color: var(--maroon); }
 
-section { padding: 60px 18px; max-width: 900px; margin: auto; text-align: center; }
-.section-title { color: var(--maroon); font-size: 32px; font-weight: normal; margin-bottom: 8px; }
+section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center; }
+.section-title { color: var(--maroon); font-size: 30px; font-weight: normal; margin-bottom: 8px; }
 .orn { color: var(--gold); font-size: 20px; margin-bottom: 24px; }
 
 /* Couple Grid */
 .couple-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 24px;
     margin-top: 20px;
 }
@@ -104,15 +111,16 @@ section { padding: 60px 18px; max-width: 900px; margin: auto; text-align: center
     background: #FFFDF8;
     border: 1px solid rgba(201, 155, 66, 0.4);
     border-radius: 20px;
-    padding: 20px;
+    padding: 18px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 .person-card img {
     width: 100%;
-    height: 380px;
+    height: 360px;
     object-fit: cover;
     border-radius: 12px;
     border: 2px solid var(--gold);
+    background-color: #f2e3d5;
 }
 .person-title { color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: 12px; margin-top: 10px; }
 .person-name { color: var(--maroon); font-size: 24px; margin: 8px 0 4px; }
@@ -122,20 +130,20 @@ section { padding: 60px 18px; max-width: 900px; margin: auto; text-align: center
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    max-width: 500px;
-    margin: 25px auto;
+    max-width: 480px;
+    margin: 20px auto;
 }
-.count { background: var(--maroon); color: #fff; padding: 14px 5px; border-radius: 12px; }
-.count b { font-size: 26px; display: block; color: #FFE9AD; }
+.count { background: var(--maroon); color: #fff; padding: 12px 5px; border-radius: 12px; }
+.count b { font-size: 24px; display: block; color: #FFE9AD; }
 .count span { font-size: 10px; letter-spacing: 1px; }
 
 /* Event Cards */
-.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
 .card {
     background: #FFFDF8;
     border: 1px solid rgba(201, 155, 66, 0.5);
     border-radius: 18px;
-    padding: 25px;
+    padding: 22px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
@@ -179,10 +187,10 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
         <div class="om-symbol">ॐ</div>
         <p style="letter-spacing:2px; color:var(--maroon); margin:5px 0;">ॐ சரவணபவ</p>
 
-        <!-- Lord Murugan Image -->
-        <img class="murugan-img-preview" src="Muruga.jpg" alt="Lord Murugan">
+        <!-- Lord Murugan Image with Lazy Loading -->
+        <img class="murugan-img-preview" src="Muruga.jpg" alt="Lord Murugan" loading="eager">
 
-        <h2 style="color:var(--maroon); font-weight:normal; margin:10px 0;">With the Blessings of<br>Lord Murugan</h2>
+        <h2 style="color:var(--maroon); font-weight:normal; margin:10px 0; font-size: 24px;">With the Blessings of<br>Lord Murugan</h2>
         <button class="btn" onclick="startExperience()">Enter Invitation</button>
     </div>
 </div>
@@ -217,13 +225,13 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
     
     <div class="couple-grid">
         <div class="person-card">
-            <img src="Groom 01 photo.jpeg" alt="Vadivel G">
+            <img src="Groom 01 photo.jpeg" alt="Vadivel G" loading="lazy">
             <div class="person-title">The Groom</div>
             <h3 class="person-name">Vadivel G</h3>
             <p>Son of Mr. Ganesan M &amp;<br>Mrs. Ellammal G</p>
         </div>
         <div class="person-card">
-            <img src="Bride 01 photo.jpeg" alt="Dhivya P">
+            <img src="Bride 01 photo.jpeg" alt="Dhivya P" loading="lazy">
             <div class="person-title">The Bride</div>
             <h3 class="person-name">Dhivya P</h3>
             <p>Daughter of Mr. Palanivel S &amp;<br>Late Mrs. Malika Palanivel</p>
@@ -282,7 +290,7 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
 </footer>
 
 <!-- Background Audio -->
-<audio id="bgMusic" loop>
+<audio id="bgMusic" loop preload="none">
     <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=indian-traditional-flute-112702.mp3" type="audio/mpeg">
 </audio>
 
