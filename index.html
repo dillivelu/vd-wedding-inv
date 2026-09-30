@@ -73,7 +73,7 @@ body.modal-active {
 }
 
 /* =========================================================
-   HERO SECTION (CLEAN TRANSPARENT OVERLAYS)
+   HERO SECTION (RESPONSIVE FULL-HEIGHT PILLARS & SPACING)
    ========================================================= */
 .hero {
     min-height: 100vh;
@@ -81,7 +81,7 @@ body.modal-active {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 80px 20px;
+    padding: 90px 80px 40px;
     position: relative;
     background-color: #FAF2E3;
     background-image: radial-gradient(#E8D9C5 1.5px, transparent 1.5px);
@@ -95,7 +95,7 @@ body.modal-active {
     top: 0;
     left: 0;
     right: 0;
-    height: clamp(70px, 12vw, 130px);
+    height: clamp(60px, 10vw, 110px);
     background-image: url('Top_layer_design-removebg-preview.png');
     background-repeat: repeat-x;
     background-size: contain;
@@ -104,38 +104,40 @@ body.modal-active {
     z-index: 4;
 }
 
-/* Side Transparent Pillar Frames */
+/* Side Transparent Pillar Frames - Stretches Full Height */
 .hero-side-frame {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: clamp(140px, 26vw, 360px);
+    width: clamp(75px, 18vw, 280px);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100% 100%;
     pointer-events: none;
     z-index: 3;
 }
 .hero-side-frame.left {
     left: 0;
-    background-position: left bottom;
+    background-position: left center;
     transform: scaleX(-1); /* Flips image for left pillar */
 }
 .hero-side-frame.right {
     right: 0;
-    background-position: right bottom;
+    background-position: right center;
 }
 
-/* Hero Center Content */
+/* Hero Center Content Container */
 .hero-content {
     position: relative;
     z-index: 5;
-    max-width: 680px;
+    max-width: 600px;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 10px;
 }
 
 /* Transparent Vinayagar Central Logo */
 .vinayagar-logo {
-    width: clamp(90px, 14vw, 140px);
+    width: clamp(75px, 12vw, 120px);
     height: auto;
     margin: 0 auto 10px;
     display: block;
@@ -143,34 +145,34 @@ body.modal-active {
 }
 
 .sub-title {
-    font-size: 13px;
-    letter-spacing: 4px;
+    font-size: clamp(11px, 2.5vw, 13px);
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: #5B0E14;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     font-weight: 600;
 }
 
 .names {
-    font-size: clamp(38px, 7vw, 76px);
+    font-size: clamp(32px, 6.5vw, 68px);
     color: var(--maroon);
-    margin: 10px 0;
+    margin: 8px 0;
     font-weight: bold;
     letter-spacing: -0.5px;
-    line-height: 1.1;
+    line-height: 1.15;
 }
 .amp {
-    font-size: 0.7em;
+    font-size: 0.75em;
     color: var(--gold);
     font-style: italic;
     font-weight: normal;
 }
 
 .hero-date {
-    font-size: clamp(16px, 3.5vw, 22px);
-    letter-spacing: 3px;
+    font-size: clamp(14px, 3vw, 20px);
+    letter-spacing: 2px;
     color: var(--maroon);
-    margin: 18px 0 25px;
+    margin: 14px 0 20px;
     text-transform: uppercase;
     font-weight: 600;
 }
@@ -180,33 +182,41 @@ body.modal-active {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    margin: 15px 0;
+    gap: 10px;
+    margin: 12px 0;
     color: var(--gold);
 }
 .orn-line::before, .orn-line::after {
     content: "";
     height: 1px;
-    width: 100px;
+    width: clamp(40px, 15vw, 90px);
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
 /* Custom Shaped Buttons */
+.hero-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
 .hero-btn {
     display: inline-block;
     border: 2px solid var(--gold);
     color: #FFE9AD;
     background: linear-gradient(180deg, #6B1017 0%, #420A10 100%);
-    padding: 12px 30px;
+    padding: 10px 24px;
     border-radius: 50px;
     text-decoration: none;
-    margin: 8px 6px;
-    box-shadow: 0 6px 18px rgba(91, 14, 20, 0.35);
+    box-shadow: 0 4px 15px rgba(91, 14, 20, 0.3);
     cursor: pointer;
-    font-size: 16px;
+    font-size: clamp(13px, 3vw, 15px);
     font-weight: 500;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 .hero-btn:hover {
     transform: translateY(-2px);
@@ -384,8 +394,19 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
 
 footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 30px 18px; }
 
-@media(max-width: 600px) {
-    .hero-btn { width: 85%; margin: 8px auto; }
+/* Mobile Specific Optimizations */
+@media (max-width: 600px) {
+    .hero {
+        padding: 65px 55px 30px; /* Safe padding from side pillars */
+    }
+    .hero-side-frame {
+        width: 65px; /* Compact width for mobile screens */
+    }
+    .hero-btn {
+        width: 100%;
+        max-width: 220px;
+        padding: 10px 16px;
+    }
 }
 </style>
 </head>
@@ -442,7 +463,7 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
 
             <div class="orn-line">✦</div>
 
-            <div style="margin-top: 25px;">
+            <div class="hero-btn-group">
                 <a class="hero-btn" href="#events">❖ View Events ❖</a>
                 <a class="hero-btn" href="#couple">❖ The Couple ❖</a>
             </div>
