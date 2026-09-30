@@ -6,8 +6,9 @@
 <meta name="theme-color" content="#4A0E0B">
 <title>Vadivel & Dhivya — Wedding Invitation</title>
 
-<!-- QR Code Library for Venue QR Modal -->
+<!-- QR Code & html2canvas Libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <style>
 :root {
@@ -60,7 +61,6 @@ body.modal-active {
 }
 .om-symbol { font-size: 55px; color: var(--maroon); line-height: 1; }
 
-/* Increased Image Size for Intro Page */
 .murugan-img-preview {
     width: 220px;
     height: 310px;
@@ -148,7 +148,7 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
 .count b { font-size: 24px; display: block; color: #FFE9AD; }
 .count span { font-size: 10px; letter-spacing: 1px; }
 
-/* Event Cards & Spacing Fixes */
+/* Event Cards & Spacing */
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
 .card {
     background: #FFFDF8;
@@ -245,7 +245,7 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
         <div class="om-symbol">ॐ</div>
         <p style="letter-spacing:2px; color:var(--maroon); margin:5px 0;">ॐ சரவணபவ</p>
 
-        <!-- Enlarged Lord Murugan Image -->
+        <!-- Lord Murugan Image -->
         <img class="murugan-img-preview" src="Muruga.jpg" alt="Lord Murugan" loading="eager">
 
         <h2 style="color:var(--maroon); font-weight:normal; margin:12px 0 20px; font-size: 24px;">With the Blessings of<br>Lord Murugan</h2>
@@ -264,90 +264,96 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
     <button class="float" id="musicBtn" onclick="toggleMusic()">🎵</button>
 </div>
 
-<!-- Hero Section -->
-<header class="hero" id="home">
-    <div>
-        <p style="letter-spacing:3px; text-transform:uppercase; font-size:12px; color:var(--maroon);">Wedding Invitation</p>
-        <h1 class="names">Vadivel <span class="amp">&amp;</span> Dhivya</h1>
-        <p class="hero-date">FRIDAY, NOVEMBER 13, 2026</p>
-        <a class="btn" href="#events">View Events</a>
-        <a class="btn" href="#couple">The Couple</a>
-    </div>
-</header>
+<!-- Printable / Downloadable Card Area -->
+<div id="downloadableCard">
 
-<!-- Couple Section -->
-<section id="couple">
-    <h2 class="section-title">The Happy Couple</h2>
-    <div class="orn">✦ ✦ ✦</div>
-    <p>With the divine blessings and the love of our families, we request your presence as we unite in marriage.</p>
-    
-    <div class="couple-grid">
-        <div class="person-card">
-            <img src="Groom 01 photo.jpeg" alt="Vadivel G" loading="lazy">
-            <div class="person-title">The Groom</div>
-            <h3 class="person-name">Vadivel G</h3>
-            <p>Son of Mr. Ganesan M &amp;<br>Mrs. Ellammal G</p>
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div>
+            <p style="letter-spacing:3px; text-transform:uppercase; font-size:12px; color:var(--maroon);">Wedding Invitation</p>
+            <h1 class="names">Vadivel <span class="amp">&amp;</span> Dhivya</h1>
+            <p class="hero-date">FRIDAY, NOVEMBER 13, 2026</p>
+            <a class="btn" href="#events">View Events</a>
+            <a class="btn" href="#couple">The Couple</a>
         </div>
-        <div class="person-card">
-            <img src="Bride 01 photo.jpeg" alt="Dhivya P" loading="lazy">
-            <div class="person-title">The Bride</div>
-            <h3 class="person-name">Dhivya P</h3>
-            <p>Daughter of Mr. Palanivel S &amp;<br>Late Mrs. Malika Palanivel</p>
+    </header>
+
+    <!-- Couple Section -->
+    <section id="couple">
+        <h2 class="section-title">The Happy Couple</h2>
+        <div class="orn">✦ ✦ ✦</div>
+        <p>With the divine blessings and the love of our families, we request your presence as we unite in marriage.</p>
+        
+        <div class="couple-grid">
+            <div class="person-card">
+                <img src="Groom 01 photo.jpeg" alt="Vadivel G" loading="lazy">
+                <div class="person-title">The Groom</div>
+                <h3 class="person-name">Vadivel G</h3>
+                <p>Son of Mr. Ganesan M &amp;<br>Mrs. Ellammal G</p>
+            </div>
+            <div class="person-card">
+                <img src="Bride 01 photo.jpeg" alt="Dhivya P" loading="lazy">
+                <div class="person-title">The Bride</div>
+                <h3 class="person-name">Dhivya P</h3>
+                <p>Daughter of Mr. Palanivel S &amp;<br>Late Mrs. Malika Palanivel</p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Countdown Section -->
-<section>
-    <h2 class="section-title">Counting Down To The Big Day</h2>
-    <div class="countdown">
-        <div class="count"><b id="cd-days">00</b><span>DAYS</span></div>
-        <div class="count"><b id="cd-hours">00</b><span>HOURS</span></div>
-        <div class="count"><b id="cd-mins">00</b><span>MINS</span></div>
-        <div class="count"><b id="cd-secs">00</b><span>SECS</span></div>
-    </div>
-</section>
+    <!-- Countdown Section -->
+    <section>
+        <h2 class="section-title">Counting Down To The Big Day</h2>
+        <div class="countdown">
+            <div class="count"><b id="cd-days">00</b><span>DAYS</span></div>
+            <div class="count"><b id="cd-hours">00</b><span>HOURS</span></div>
+            <div class="count"><b id="cd-mins">00</b><span>MINS</span></div>
+            <div class="count"><b id="cd-secs">00</b><span>SECS</span></div>
+        </div>
+    </section>
 
-<!-- Events Section (With Spacing & Directions Improvements) -->
-<section id="events">
-    <h2 class="section-title">Celebration Details</h2>
-    <div class="orn">✦ ✦ ✦</div>
+    <!-- Events Section -->
+    <section id="events">
+        <h2 class="section-title">Celebration Details</h2>
+        <div class="orn">✦ ✦ ✦</div>
 
-    <div class="card-grid">
-        <!-- Reception Card -->
-        <div class="card">
-            <h3 style="color:var(--maroon); margin-top:0;">🎉 Reception</h3>
-            <p style="color:var(--gold); font-size:22px; font-weight:bold; margin: 10px 0;">12-11-2026</p>
-            <p style="font-weight: bold;">Thursday • 06:00 PM onwards</p>
-            
-            <div class="venue-text">
-                <p style="margin: 5px 0;"><strong>Venue:</strong></p>
-                <p style="margin: 0;">Rajkala Palace, Veppanapalli,</p>
-                <p style="margin: 0;">Krishnagiri district, Tamil Nadu, 635121</p>
+        <div class="card-grid">
+            <!-- Reception Card (Direct Venue View Link) -->
+            <div class="card">
+                <h3 style="color:var(--maroon); margin-top:0;">🎉 Reception</h3>
+                <p style="color:var(--gold); font-size:22px; font-weight:bold; margin: 10px 0;">12-11-2026</p>
+                <p style="font-weight: bold;">Thursday • 06:00 PM onwards</p>
+                
+                <div class="venue-text">
+                    <p style="margin: 5px 0;"><strong>Venue:</strong></p>
+                    <p style="margin: 0;">Rajkala Palace, Veppanapalli,</p>
+                    <p style="margin: 0;">Krishnagiri district, Tamil Nadu, 635121</p>
+                </div>
+
+                <!-- Shows Venue Location Only -->
+                <a class="btn" href="https://maps.google.com/?q=Rajkala+Palace+Veppanapalli+Krishnagiri" target="_blank" rel="noopener">📍 View Location</a>
             </div>
 
-            <a class="btn" href="https://maps.google.com/?saddr=Current+Location&daddr=Rajkala+Palace+Veppanapalli+Krishnagiri" target="_blank" rel="noopener">📍 View Location</a>
-        </div>
+            <!-- Wedding Card (Directions Link) -->
+            <div class="card">
+                <h3 style="color:var(--maroon); margin-top:0;">💍 Muhurtham</h3>
+                <p style="color:var(--gold); font-size:22px; font-weight:bold; margin: 10px 0;">13-11-2026</p>
+                <p style="font-weight: bold;">Friday • 06:00 AM to 07:30 AM</p>
+                
+                <div class="venue-text">
+                    <p style="margin: 5px 0;"><strong>Venue:</strong></p>
+                    <p style="margin: 0;">Rajkala Palace, Veppanapalli,</p>
+                    <p style="margin: 0;">Krishnagiri district, Tamil Nadu, 635121</p>
+                </div>
 
-        <!-- Wedding Card -->
-        <div class="card">
-            <h3 style="color:var(--maroon); margin-top:0;">💍 Muhurtham</h3>
-            <p style="color:var(--gold); font-size:22px; font-weight:bold; margin: 10px 0;">13-11-2026</p>
-            <p style="font-weight: bold;">Friday • 06:00 AM to 07:30 AM</p>
-            
-            <div class="venue-text">
-                <p style="margin: 5px 0;"><strong>Venue:</strong></p>
-                <p style="margin: 0;">Rajkala Palace, Veppanapalli,</p>
-                <p style="margin: 0;">Krishnagiri district, Tamil Nadu, 635121</p>
+                <!-- Gets Directions From Present Location -->
+                <a class="btn" href="https://maps.google.com/?saddr=Current+Location&daddr=Rajkala+Palace+Veppanapalli+Krishnagiri" target="_blank" rel="noopener">🧭 Get Directions</a>
             </div>
-
-            <!-- Single Get Directions Button with Current Location Origin -->
-            <a class="btn" href="https://maps.google.com/?saddr=Current+Location&daddr=Rajkala+Palace+Veppanapalli+Krishnagiri" target="_blank" rel="noopener">🧭 Get Directions</a>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Action Section (Requested Utilities) -->
+</div>
+
+<!-- Action Options Section -->
 <section>
     <h2 class="section-title">Invitation Options</h2>
     <div class="orn">✦ ✦ ✦</div>
@@ -361,12 +367,12 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
             <button class="btn" onclick="addToCalendar()">Add Event</button>
         </div>
 
-        <!-- Download Card -->
+        <!-- Download Card (Full Card Screenshot Download) -->
         <div class="action-box">
             <div style="font-size:30px;">🖼️</div>
             <h4>Download Card</h4>
             <p>Save the invitation card as an image</p>
-            <a class="btn" href="Groom 01 photo.jpeg" download="Wedding-Invitation">Download</a>
+            <button class="btn" onclick="downloadCardImage()">Download</button>
         </div>
 
         <!-- Venue QR Codes -->
@@ -430,7 +436,7 @@ let isPlaying = false;
 
 function startExperience() {
     document.getElementById('muruganOpen').classList.add('closed');
-    document.body.classList.remove('modal-active'); // Unlocks page scrolling
+    document.body.classList.remove('modal-active');
     toggleMusic();
 }
 
@@ -444,6 +450,18 @@ function toggleMusic() {
         document.getElementById('musicBtn').innerText = "🎵";
         isPlaying = true;
     }
+}
+
+// Full Card Image Capture & Download
+function downloadCardImage() {
+    const cardArea = document.getElementById('downloadableCard');
+    alert('Generating your invitation card image... Please wait a moment.');
+    html2canvas(cardArea, { useCORS: true, scale: 2 }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'Vadivel-Dhivya-Wedding-Invitation.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    });
 }
 
 // Google Calendar Event Link
@@ -472,7 +490,7 @@ function hideQRCode() {
     document.getElementById('qrModal').classList.remove('active');
 }
 
-// WhatsApp & Clipboard Sharing
+// WhatsApp Sharing
 function shareWhatsApp() {
     const text = encodeURIComponent("You're cordially invited to the wedding of Vadivel & Dhivya!\nView Invitation: " + window.location.href);
     window.open("https://api.whatsapp.com/send?text=" + text, "_blank");
