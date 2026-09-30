@@ -12,10 +12,10 @@
 
 <style>
 :root {
-    --maroon: #4A0E0B;
+    --maroon: #5B0E14;
     --deep: #2D0806;
-    --gold: #C99B42;
-    --cream: #FAF6EE;
+    --gold: #D4AF37;
+    --cream: #FAF2E3;
     --text-dark: #38262C;
 }
 
@@ -24,7 +24,7 @@ html { scroll-behavior: smooth; }
 body {
     margin: 0;
     color: var(--text-dark);
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: 'Georgia', 'Times New Roman', serif;
     background: var(--cream);
     overflow-x: hidden;
 }
@@ -51,7 +51,7 @@ body.modal-active {
 }
 .murugan-open.closed { display: none; }
 .murugan-card {
-    max-width: 550px;
+    max-width: 500px;
     width: 100%;
     padding: 35px 25px;
     border: 2px solid var(--gold);
@@ -63,7 +63,7 @@ body.modal-active {
 
 .murugan-img-preview {
     width: 220px;
-    height: 310px;
+    height: 300px;
     object-fit: cover;
     border-radius: 14px;
     border: 3px solid var(--gold);
@@ -72,26 +72,167 @@ body.modal-active {
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* Hero Section */
+/* =========================================================
+   HERO SECTION (MATCHING UPLOADED DESIGN)
+   ========================================================= */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 35px 20px;
+    padding: 60px 20px;
     position: relative;
-    background: linear-gradient(135deg, #FAF6EE, #F4DFD2);
+    background-color: #F8EFE0;
+    background-image: radial-gradient(#E8D9C5 1px, transparent 1px);
+    background-size: 24px 24px;
+    overflow: hidden;
 }
+
+/* Mandap / Arch Watermark Background */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, rgba(248,239,224,0) 70%);
+    pointer-events: none;
+}
+
+/* Side Banana Leaves Representation */
+.side-leaf {
+    position: absolute;
+    top: 0;
+    width: 180px;
+    height: 100%;
+    background: linear-gradient(180deg, #3A7D2C 0%, #2E6023 60%, #1E4016 100%);
+    opacity: 0.85;
+    pointer-events: none;
+}
+.side-leaf.left {
+    left: -60px;
+    border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+    box-shadow: 15px 0 30px rgba(0,0,0,0.15);
+}
+.side-leaf.right {
+    right: -60px;
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+    box-shadow: -15px 0 30px rgba(0,0,0,0.15);
+}
+
+/* Hanging Toran / Floral Garlands */
+.hanging-garlands {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: repeating-linear-gradient(90deg, 
+        transparent, transparent 40px, 
+        #D9383A 40px, #D9383A 50px, 
+        #FFD700 50px, #FFD700 60px);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Hero Main Content Box */
+.hero-content {
+    position: relative;
+    z-index: 5;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* Ganesha Icon Styling */
+.ganesha-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ganesha-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--gold);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.sub-title {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #6B4E28;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
 .names {
-    font-size: clamp(40px, 8vw, 72px);
+    font-size: clamp(38px, 7vw, 76px);
     color: var(--maroon);
-    margin: 16px 0 10px;
+    margin: 10px 0;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+.amp {
+    font-size: 0.7em;
+    color: var(--gold);
+    font-style: italic;
     font-weight: normal;
 }
-.amp { font-size: 0.6em; color: var(--gold); font-style: italic; }
-.hero-date { font-size: 18px; letter-spacing: 2px; color: var(--deep); margin: 20px 0; }
 
+.hero-date {
+    font-size: clamp(16px, 3.5vw, 22px);
+    letter-spacing: 3px;
+    color: var(--maroon);
+    margin: 18px 0 25px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Ornamental Line Dividers */
+.orn-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 15px 0;
+    color: var(--gold);
+}
+.orn-line::before, .orn-line::after {
+    content: "";
+    height: 1px;
+    width: 100px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Custom Shaped Buttons like Uploaded Image */
+.hero-btn {
+    display: inline-block;
+    border: 2px solid var(--gold);
+    color: #FFE9AD;
+    background: linear-gradient(180deg, #6B1017 0%, #420A10 100%);
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    margin: 10px 8px;
+    box-shadow: 0 6px 18px rgba(91, 14, 20, 0.35);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+.hero-btn:hover {
+    transform: translateY(-2px);
+    background: var(--gold);
+    color: var(--maroon);
+}
+
+/* =========================================================
+   GENERAL SECTIONS & UTILITIES
+   ========================================================= */
 .btn {
     display: inline-block;
     border: 1px solid var(--gold);
@@ -235,6 +376,11 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
 #qrcode { margin: 15px auto; display: flex; justify-content: center; }
 
 footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 30px 18px; }
+
+@media(max-width: 600px) {
+    .side-leaf { width: 100px; }
+    .hero-btn { width: 80%; margin: 8px auto; }
+}
 </style>
 </head>
 <body class="modal-active">
@@ -267,14 +413,34 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
 <!-- Printable / Downloadable Card Area -->
 <div id="downloadableCard">
 
-    <!-- Hero Section -->
+    <!-- HERO SECTION (REDESIGNED BASED ON UPLOADED IMAGE) -->
     <header class="hero" id="home">
-        <div>
-            <p style="letter-spacing:3px; text-transform:uppercase; font-size:12px; color:var(--maroon);">Wedding Invitation</p>
+        <!-- Visual Accents -->
+        <div class="side-leaf left"></div>
+        <div class="side-leaf right"></div>
+        <div class="hanging-garlands"></div>
+
+        <div class="hero-content">
+            <!-- Lord Ganesha Vector Icon -->
+            <div class="ganesha-icon">
+                <svg viewBox="0 0 100 100">
+                    <path d="M50,15 C45,15 40,18 38,22 C36,20 32,18 28,20 C24,22 23,27 25,31 C27,35 32,38 35,36 C35,42 32,48 28,52 C26,54 26,58 30,58 C34,58 40,52 44,46 C46,50 48,56 48,65 C48,72 45,78 40,82 C38,84 40,88 43,87 C50,85 55,75 55,65 C55,54 52,48 50,44 C54,42 62,38 65,30 C68,22 62,15 50,15 Z M50,22 C56,22 58,26 56,30 C54,34 48,36 45,34 C46,28 48,22 50,22 Z"/>
+                </svg>
+            </div>
+
+            <div class="orn-line">✦</div>
+            <p class="sub-title">WEDDING INVITATION</p>
+            
             <h1 class="names">Vadivel <span class="amp">&amp;</span> Dhivya</h1>
+            
             <p class="hero-date">FRIDAY, NOVEMBER 13, 2026</p>
-            <a class="btn" href="#events">View Events</a>
-            <a class="btn" href="#couple">The Couple</a>
+
+            <div class="orn-line">✦</div>
+
+            <div style="margin-top: 25px;">
+                <a class="hero-btn" href="#events">❖ View Events ❖</a>
+                <a class="hero-btn" href="#couple">❖ The Couple ❖</a>
+            </div>
         </div>
     </header>
 
@@ -317,7 +483,7 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
         <div class="orn">✦ ✦ ✦</div>
 
         <div class="card-grid">
-            <!-- Reception Card (Direct Venue View Link) -->
+            <!-- Reception Card -->
             <div class="card">
                 <h3 style="color:var(--maroon); margin-top:0;">🎉 Reception</h3>
                 <p style="color:var(--gold); font-size:22px; font-weight:bold; margin: 10px 0;">12-11-2026</p>
@@ -329,11 +495,10 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
                     <p style="margin: 0;">Krishnagiri district, Tamil Nadu, 635121</p>
                 </div>
 
-                <!-- Shows Venue Location Only -->
                 <a class="btn" href="https://maps.google.com/?q=Rajkala+Palace+Veppanapalli+Krishnagiri" target="_blank" rel="noopener">📍 View Location</a>
             </div>
 
-            <!-- Wedding Card (Directions Link) -->
+            <!-- Wedding Card -->
             <div class="card">
                 <h3 style="color:var(--maroon); margin-top:0;">💍 Muhurtham</h3>
                 <p style="color:var(--gold); font-size:22px; font-weight:bold; margin: 10px 0;">13-11-2026</p>
@@ -345,7 +510,6 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
                     <p style="margin: 0;">Krishnagiri district, Tamil Nadu, 635121</p>
                 </div>
 
-                <!-- Gets Directions From Present Location -->
                 <a class="btn" href="https://maps.google.com/?saddr=Current+Location&daddr=Rajkala+Palace+Veppanapalli+Krishnagiri" target="_blank" rel="noopener">🧭 Get Directions</a>
             </div>
         </div>
@@ -367,7 +531,7 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
             <button class="btn" onclick="addToCalendar()">Add Event</button>
         </div>
 
-        <!-- Download Card (Full Card Screenshot Download) -->
+        <!-- Download Card -->
         <div class="action-box">
             <div style="font-size:30px;">🖼️</div>
             <h4>Download Card</h4>
