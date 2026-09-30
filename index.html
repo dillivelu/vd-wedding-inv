@@ -73,7 +73,7 @@ body.modal-active {
 }
 
 /* =========================================================
-   HERO SECTION (USING YOUR UPLOADED DESIGN IMAGES)
+   HERO SECTION (CLEAN TRANSPARENT OVERLAYS)
    ========================================================= */
 .hero {
     min-height: 100vh;
@@ -83,20 +83,20 @@ body.modal-active {
     text-align: center;
     padding: 80px 20px;
     position: relative;
-    background-color: #FAF4E5;
+    background-color: #FAF2E3;
     background-image: radial-gradient(#E8D9C5 1.5px, transparent 1.5px);
     background-size: 28px 28px;
     overflow: hidden;
 }
 
-/* Top Layer Floral Garland */
+/* Top Transparent Garland Overlay */
 .hero-top-garland {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: clamp(80px, 14vw, 150px);
-    background-image: url('Top layer design.jpg');
+    height: clamp(70px, 12vw, 130px);
+    background-image: url('Top_layer_design-removebg-preview.png');
     background-repeat: repeat-x;
     background-size: contain;
     background-position: top center;
@@ -104,7 +104,7 @@ body.modal-active {
     z-index: 4;
 }
 
-/* Side Pillar & Banana Leaf Framing */
+/* Side Transparent Pillar Frames */
 .hero-side-frame {
     position: absolute;
     top: 0;
@@ -117,12 +117,12 @@ body.modal-active {
 }
 .hero-side-frame.left {
     left: 0;
-    background-position: left center;
+    background-position: left bottom;
     transform: scaleX(-1); /* Flips image for left pillar */
 }
 .hero-side-frame.right {
     right: 0;
-    background-position: right center;
+    background-position: right bottom;
 }
 
 /* Hero Center Content */
@@ -133,13 +133,12 @@ body.modal-active {
     margin: 0 auto;
 }
 
-/* Vinayagar Central Logo */
+/* Transparent Vinayagar Central Logo */
 .vinayagar-logo {
     width: clamp(90px, 14vw, 140px);
     height: auto;
     margin: 0 auto 10px;
     display: block;
-    mix-blend-mode: multiply;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
@@ -426,13 +425,13 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
         <div class="hero-top-garland"></div>
 
         <!-- Left and Right Side Pillar/Leaf Design -->
-        <div class="hero-side-frame left" style="background-image: url('Left and right side design.jpg');"></div>
-        <div class="hero-side-frame right" style="background-image: url('Left and right side design.jpg');"></div>
+        <div class="hero-side-frame left" style="background-image: url('Left_and_right_side_design-removebg-preview.png');"></div>
+        <div class="hero-side-frame right" style="background-image: url('Left_and_right_side_design-removebg-preview.png');"></div>
 
         <!-- Main Hero Content -->
         <div class="hero-content">
             <!-- Vinayagar Logo -->
-            <img class="vinayagar-logo" src="Vinayagar.jpg" alt="Vinayagar Logo">
+            <img class="vinayagar-logo" src="Vinayagar-removebg-preview.png" alt="Vinayagar Logo">
 
             <div class="orn-line">✦</div>
             <p class="sub-title">WEDDING INVITATION</p>
