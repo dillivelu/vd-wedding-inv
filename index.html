@@ -73,7 +73,7 @@ body.modal-active {
 }
 
 /* =========================================================
-   FLYING BLUE BUTTERFLIES ANIMATION (FIXED & TESTED)
+   NATURAL 3D REALISTIC BUTTERFLY ANIMATION
    ========================================================= */
 .butterfly-container {
     position: fixed;
@@ -84,55 +84,77 @@ body.modal-active {
     pointer-events: none;
     z-index: 99;
     overflow: hidden;
+    perspective: 1000px;
 }
 
-.butterfly {
+.butterfly-wrapper {
     position: absolute;
-    bottom: -80px;
-    width: 50px;
-    height: 50px;
+    bottom: -100px;
+    animation: naturalFlight 14s ease-in-out infinite;
+}
+
+.butterfly-wings {
+    width: 45px;
+    height: 45px;
     background-image: url('blue-butterfly.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.9;
-    animation: flyUp 12s linear infinite;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
+    animation: flapWings 0.35s ease-in-out infinite alternate;
+    transform-origin: center center;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
 }
 
-/* Fluttering and Upward Flight Animation */
-@keyframes flyUp {
+/* Realistic 3D Wing Flapping Movement */
+@keyframes flapWings {
     0% {
-        transform: translateY(0) translateX(0) rotate(0deg) scale(0.7);
-        opacity: 0;
-    }
-    15% {
-        opacity: 1;
-    }
-    25% {
-        transform: translateY(-30vh) translateX(35px) rotate(15deg) scale(0.9);
-    }
-    50% {
-        transform: translateY(-60vh) translateX(-25px) rotate(-10deg) scale(1.1);
-    }
-    75% {
-        transform: translateY(-85vh) translateX(25px) rotate(10deg) scale(0.95);
-    }
-    90% {
-        opacity: 0.9;
+        transform: rotateY(0deg) scaleY(1);
     }
     100% {
-        transform: translateY(-115vh) translateX(-15px) rotate(-5deg) scale(0.8);
+        transform: rotateY(70deg) scaleY(0.85);
+    }
+}
+
+/* Natural Curved Flight Path & Swaying */
+@keyframes naturalFlight {
+    0% {
+        transform: translateY(0) translateX(0) rotate(-10deg) scale(0.6);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.95;
+    }
+    30% {
+        transform: translateY(-35vh) translateX(45px) rotate(18deg) scale(0.9);
+    }
+    55% {
+        transform: translateY(-65vh) translateX(-35px) rotate(-15deg) scale(1.1);
+    }
+    80% {
+        transform: translateY(-90vh) translateX(30px) rotate(12deg) scale(0.85);
+        opacity: 0.95;
+    }
+    100% {
+        transform: translateY(-120vh) translateX(-20px) rotate(-8deg) scale(0.6);
         opacity: 0;
     }
 }
 
-/* Butterfly Speed and Position Delays */
-.bf-1 { left: 5%; animation-duration: 12s; animation-delay: 0s; width: 45px; }
-.bf-2 { left: 25%; animation-duration: 16s; animation-delay: 2s; width: 55px; }
-.bf-3 { left: 48%; animation-duration: 14s; animation-delay: 5s; width: 40px; }
-.bf-4 { left: 70%; animation-duration: 17s; animation-delay: 1s; width: 50px; }
-.bf-5 { left: 88%; animation-duration: 13s; animation-delay: 4s; width: 42px; }
+/* Individual Butterfly Positions, Speeds & Delays */
+.bf-1 { left: 12%; animation-duration: 13s; animation-delay: 0s; }
+.bf-1 .butterfly-wings { width: 40px; height: 40px; animation-duration: 0.3s; }
+
+.bf-2 { left: 32%; animation-duration: 17s; animation-delay: 3s; }
+.bf-2 .butterfly-wings { width: 55px; height: 55px; animation-duration: 0.4s; }
+
+.bf-3 { left: 55%; animation-duration: 14s; animation-delay: 6s; }
+.bf-3 .butterfly-wings { width: 42px; height: 42px; animation-duration: 0.32s; }
+
+.bf-4 { left: 78%; animation-duration: 18s; animation-delay: 1.5s; }
+.bf-4 .butterfly-wings { width: 50px; height: 50px; animation-duration: 0.38s; }
+
+.bf-5 { left: 92%; animation-duration: 15s; animation-delay: 8s; }
+.bf-5 .butterfly-wings { width: 38px; height: 38px; animation-duration: 0.28s; }
 
 /* =========================================================
    HERO SECTION
@@ -466,11 +488,11 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
 
 <!-- Flying Blue Butterflies Overlay -->
 <div class="butterfly-container">
-    <div class="butterfly bf-1"></div>
-    <div class="butterfly bf-2"></div>
-    <div class="butterfly bf-3"></div>
-    <div class="butterfly bf-4"></div>
-    <div class="butterfly bf-5"></div>
+    <div class="butterfly-wrapper bf-1"><div class="butterfly-wings"></div></div>
+    <div class="butterfly-wrapper bf-2"><div class="butterfly-wings"></div></div>
+    <div class="butterfly-wrapper bf-3"><div class="butterfly-wings"></div></div>
+    <div class="butterfly-wrapper bf-4"><div class="butterfly-wings"></div></div>
+    <div class="butterfly-wrapper bf-5"><div class="butterfly-wings"></div></div>
 </div>
 
 <!-- Floating Petals -->
@@ -657,7 +679,7 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
     </div>
 </div>
 
-<!-- Background Audio (Linked to your uploaded audio file) -->
+<!-- Background Audio -->
 <audio id="bgMusic" loop preload="none">
     <source src="bgmusic.mp3" type="audio/mpeg">
 </audio>
