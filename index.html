@@ -94,13 +94,13 @@ body.modal-active {
 }
 
 .butterfly-wings {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     background-image: url('blue-butterfly.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    animation: flapWings 0.35s ease-in-out infinite alternate;
+    animation: flapWings 0.32s ease-in-out infinite alternate;
     transform-origin: center center;
     filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
 }
@@ -111,7 +111,7 @@ body.modal-active {
         transform: rotateY(0deg) scaleY(1);
     }
     100% {
-        transform: rotateY(70deg) scaleY(0.85);
+        transform: rotateY(72deg) scaleY(0.85);
     }
 }
 
@@ -141,20 +141,20 @@ body.modal-active {
 }
 
 /* Individual Butterfly Positions, Speeds & Delays */
-.bf-1 { left: 12%; animation-duration: 13s; animation-delay: 0s; }
-.bf-1 .butterfly-wings { width: 40px; height: 40px; animation-duration: 0.3s; }
+.bf-1 { left: 10%; animation-duration: 13s; animation-delay: 0s; }
+.bf-1 .butterfly-wings { width: 42px; height: 42px; animation-duration: 0.28s; }
 
 .bf-2 { left: 32%; animation-duration: 17s; animation-delay: 3s; }
-.bf-2 .butterfly-wings { width: 55px; height: 55px; animation-duration: 0.4s; }
+.bf-2 .butterfly-wings { width: 58px; height: 58px; animation-duration: 0.36s; }
 
 .bf-3 { left: 55%; animation-duration: 14s; animation-delay: 6s; }
-.bf-3 .butterfly-wings { width: 42px; height: 42px; animation-duration: 0.32s; }
+.bf-3 .butterfly-wings { width: 45px; height: 45px; animation-duration: 0.3s; }
 
 .bf-4 { left: 78%; animation-duration: 18s; animation-delay: 1.5s; }
-.bf-4 .butterfly-wings { width: 50px; height: 50px; animation-duration: 0.38s; }
+.bf-4 .butterfly-wings { width: 52px; height: 52px; animation-duration: 0.34s; }
 
 .bf-5 { left: 92%; animation-duration: 15s; animation-delay: 8s; }
-.bf-5 .butterfly-wings { width: 38px; height: 38px; animation-duration: 0.28s; }
+.bf-5 .butterfly-wings { width: 38px; height: 38px; animation-duration: 0.26s; }
 
 /* =========================================================
    HERO SECTION
@@ -198,7 +198,7 @@ body.modal-active {
     padding: 0 5px;
 }
 
-/* Vinayagar Central Logo */
+/* Enlarged Vinayagar Central Logo */
 .vinayagar-logo {
     width: clamp(110px, 22vw, 165px);
     height: auto;
@@ -207,7 +207,7 @@ body.modal-active {
     filter: drop-shadow(0 2px 5px rgba(0,0,0,0.12));
 }
 
-/* VD Monogram Logo */
+/* Enlarged VD Monogram Logo */
 .vd-monogram {
     width: clamp(160px, 32vw, 240px);
     height: auto;
@@ -710,7 +710,7 @@ function startExperience() {
     document.getElementById('muruganOpen').classList.add('closed');
     document.body.classList.remove('modal-active');
     
-    // Explicitly scroll to top of 1st slide landing page
+    // Scroll to top of 1st slide landing page
     window.scrollTo({ top: 0, behavior: 'instant' });
     
     toggleMusic();
