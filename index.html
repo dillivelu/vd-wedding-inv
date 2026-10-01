@@ -73,66 +73,66 @@ body.modal-active {
 }
 
 /* =========================================================
-   FLYING BLUE BUTTERFLIES ANIMATION
+   FLYING BLUE BUTTERFLIES ANIMATION (FIXED & TESTED)
    ========================================================= */
 .butterfly-container {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
-    z-index: 15;
+    z-index: 99;
     overflow: hidden;
 }
 
 .butterfly {
     position: absolute;
-    bottom: -100px;
-    width: 45px;
-    height: 45px;
+    bottom: -80px;
+    width: 50px;
+    height: 50px;
     background-image: url('blue-butterfly.png');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.85;
-    animation: flyUp linear infinite, wingFlap 0.6s ease-in-out infinite alternate;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    background-position: center;
+    opacity: 0.9;
+    animation: flyUp 12s linear infinite;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
 }
 
-/* Vertical Flying & Swaying Motion */
+/* Fluttering and Upward Flight Animation */
 @keyframes flyUp {
     0% {
-        transform: translateY(0) translateX(0) rotate(0deg) scale(0.8);
+        transform: translateY(0) translateX(0) rotate(0deg) scale(0.7);
         opacity: 0;
     }
-    10% {
-        opacity: 0.9;
+    15% {
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(-30vh) translateX(35px) rotate(15deg) scale(0.9);
     }
     50% {
-        transform: translateY(-50vh) translateX(30px) rotate(15deg) scale(1);
+        transform: translateY(-60vh) translateX(-25px) rotate(-10deg) scale(1.1);
+    }
+    75% {
+        transform: translateY(-85vh) translateX(25px) rotate(10deg) scale(0.95);
     }
     90% {
         opacity: 0.9;
     }
     100% {
-        transform: translateY(-110vh) translateX(-20px) rotate(-10deg) scale(0.8);
+        transform: translateY(-115vh) translateX(-15px) rotate(-5deg) scale(0.8);
         opacity: 0;
     }
 }
 
-/* Wing Flapping Motion Effect */
-@keyframes wingFlap {
-    0% {
-        transform: scaleX(1);
-    }
-    100% {
-        transform: scaleX(0.4) rotate(5deg);
-    }
-}
-
-/* Individual Butterfly Positions & Delays */
-.bf-1 { left: 8%; animation-duration: 14s; animation-delay: 0s; width: 40px; }
-.bf-2 { left: 28%; animation-duration: 18s; animation-delay: 3s; width: 55px; }
-.bf-3 { left: 52%; animation-duration: 15s; animation-delay: 6s; width: 48px; }
-.bf-4 { left: 75%; animation-duration: 19s; animation-delay: 1.5s; width: 50px; }
-.bf-5 { left: 90%; animation-duration: 16s; animation-delay: 8s; width: 42px; }
+/* Butterfly Speed and Position Delays */
+.bf-1 { left: 5%; animation-duration: 12s; animation-delay: 0s; width: 45px; }
+.bf-2 { left: 25%; animation-duration: 16s; animation-delay: 2s; width: 55px; }
+.bf-3 { left: 48%; animation-duration: 14s; animation-delay: 5s; width: 40px; }
+.bf-4 { left: 70%; animation-duration: 17s; animation-delay: 1s; width: 50px; }
+.bf-5 { left: 88%; animation-duration: 13s; animation-delay: 4s; width: 42px; }
 
 /* =========================================================
    HERO SECTION
