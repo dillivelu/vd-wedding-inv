@@ -73,7 +73,7 @@ body.modal-active {
 }
 
 /* =========================================================
-   HERO SECTION (RESPONSIVE FULL-HEIGHT PILLARS & SPACING)
+   HERO SECTION (CLEAN MOBILE LAYOUT - SIDE PILLARS REMOVED)
    ========================================================= */
 .hero {
     min-height: 100vh;
@@ -81,7 +81,7 @@ body.modal-active {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 90px 80px 40px;
+    padding: 80px 20px 40px;
     position: relative;
     background-color: #FAF2E3;
     background-image: radial-gradient(#E8D9C5 1.5px, transparent 1.5px);
@@ -95,7 +95,7 @@ body.modal-active {
     top: 0;
     left: 0;
     right: 0;
-    height: clamp(60px, 10vw, 110px);
+    height: clamp(60px, 12vw, 120px);
     background-image: url('Top_layer_design-removebg-preview.png');
     background-repeat: repeat-x;
     background-size: contain;
@@ -104,59 +104,38 @@ body.modal-active {
     z-index: 4;
 }
 
-/* Side Transparent Pillar Frames - Stretches Full Height */
-.hero-side-frame {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: clamp(75px, 18vw, 280px);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    pointer-events: none;
-    z-index: 3;
-}
-.hero-side-frame.left {
-    left: 0;
-    background-position: left center;
-    transform: scaleX(-1); /* Flips image for left pillar */
-}
-.hero-side-frame.right {
-    right: 0;
-    background-position: right center;
-}
-
 /* Hero Center Content Container */
 .hero-content {
     position: relative;
     z-index: 5;
-    max-width: 600px;
+    max-width: 650px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 0 15px;
 }
 
 /* Transparent Vinayagar Central Logo */
 .vinayagar-logo {
-    width: clamp(75px, 12vw, 120px);
+    width: clamp(100px, 18vw, 150px);
     height: auto;
-    margin: 0 auto 10px;
+    margin: 0 auto 15px;
     display: block;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
 .sub-title {
-    font-size: clamp(11px, 2.5vw, 13px);
-    letter-spacing: 3px;
+    font-size: clamp(12px, 2.5vw, 14px);
+    letter-spacing: 4px;
     text-transform: uppercase;
     color: #5B0E14;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-weight: 600;
 }
 
 .names {
-    font-size: clamp(32px, 6.5vw, 68px);
+    font-size: clamp(38px, 7vw, 76px);
     color: var(--maroon);
-    margin: 8px 0;
+    margin: 10px 0;
     font-weight: bold;
     letter-spacing: -0.5px;
     line-height: 1.15;
@@ -169,10 +148,10 @@ body.modal-active {
 }
 
 .hero-date {
-    font-size: clamp(14px, 3vw, 20px);
+    font-size: clamp(15px, 3.5vw, 22px);
     letter-spacing: 2px;
     color: var(--maroon);
-    margin: 14px 0 20px;
+    margin: 16px 0 22px;
     text-transform: uppercase;
     font-weight: 600;
 }
@@ -182,14 +161,14 @@ body.modal-active {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin: 12px 0;
+    gap: 12px;
+    margin: 15px 0;
     color: var(--gold);
 }
 .orn-line::before, .orn-line::after {
     content: "";
     height: 1px;
-    width: clamp(40px, 15vw, 90px);
+    width: clamp(50px, 20vw, 110px);
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
@@ -199,20 +178,20 @@ body.modal-active {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin-top: 15px;
+    gap: 12px;
+    margin-top: 20px;
 }
 .hero-btn {
     display: inline-block;
     border: 2px solid var(--gold);
     color: #FFE9AD;
     background: linear-gradient(180deg, #6B1017 0%, #420A10 100%);
-    padding: 10px 24px;
+    padding: 12px 28px;
     border-radius: 50px;
     text-decoration: none;
     box-shadow: 0 4px 15px rgba(91, 14, 20, 0.3);
     cursor: pointer;
-    font-size: clamp(13px, 3vw, 15px);
+    font-size: clamp(14px, 3.2vw, 16px);
     font-weight: 500;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
@@ -393,21 +372,6 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
 #qrcode { margin: 15px auto; display: flex; justify-content: center; }
 
 footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 30px 18px; }
-
-/* Mobile Specific Optimizations */
-@media (max-width: 600px) {
-    .hero {
-        padding: 65px 55px 30px; /* Safe padding from side pillars */
-    }
-    .hero-side-frame {
-        width: 65px; /* Compact width for mobile screens */
-    }
-    .hero-btn {
-        width: 100%;
-        max-width: 220px;
-        padding: 10px 16px;
-    }
-}
 </style>
 </head>
 <body class="modal-active">
@@ -444,10 +408,6 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
     <header class="hero" id="home">
         <!-- Top Floral Garland -->
         <div class="hero-top-garland"></div>
-
-        <!-- Left and Right Side Pillar/Leaf Design -->
-        <div class="hero-side-frame left" style="background-image: url('Left_and_right_side_design-removebg-preview.png');"></div>
-        <div class="hero-side-frame right" style="background-image: url('Left_and_right_side_design-removebg-preview.png');"></div>
 
         <!-- Main Hero Content -->
         <div class="hero-content">
@@ -610,9 +570,9 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
     </div>
 </div>
 
-<!-- Background Audio -->
+<!-- Background Audio (Linked to your uploaded audio file) -->
 <audio id="bgMusic" loop preload="none">
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=indian-traditional-flute-112702.mp3" type="audio/mpeg">
+    <source src="bgmusic.mp3" type="audio/mpeg">
 </audio>
 
 <script>
