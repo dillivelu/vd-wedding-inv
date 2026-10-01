@@ -73,7 +73,7 @@ body.modal-active {
 }
 
 /* =========================================================
-   HERO SECTION (SINGLE-LINE NAME FORMATTING)
+   HERO SECTION (INCREASED LOGO SIZES)
    ========================================================= */
 .hero {
     min-height: 100vh;
@@ -114,22 +114,22 @@ body.modal-active {
     padding: 0 5px;
 }
 
-/* Vinayagar Central Logo */
+/* Enlarged Vinayagar Central Logo */
 .vinayagar-logo {
-    width: clamp(75px, 14vw, 110px);
+    width: clamp(110px, 22vw, 165px);
     height: auto;
-    margin: 0 auto 5px;
+    margin: 0 auto 8px;
     display: block;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.12));
 }
 
-/* VD Monogram Logo */
+/* Enlarged VD Monogram Logo */
 .vd-monogram {
-    width: clamp(110px, 20vw, 170px);
+    width: clamp(160px, 32vw, 240px);
     height: auto;
-    margin: 5px auto 12px;
+    margin: 5px auto 15px;
     display: block;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12));
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.15));
 }
 
 .sub-title {
@@ -149,7 +149,7 @@ body.modal-active {
     font-weight: bold;
     letter-spacing: -0.5px;
     line-height: 1.15;
-    white-space: nowrap; /* Forces name to stay on a single line */
+    white-space: nowrap;
 }
 .amp {
     font-size: 0.85em;
@@ -416,17 +416,17 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
 <!-- Printable / Downloadable Card Area -->
 <div id="downloadableCard">
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (1ST SLIDE LANDING PAGE) -->
     <header class="hero" id="home">
         <!-- Top Floral Garland -->
         <div class="hero-top-garland"></div>
 
         <!-- Main Hero Content -->
         <div class="hero-content">
-            <!-- Vinayagar Logo -->
+            <!-- Enlarged Vinayagar Logo -->
             <img class="vinayagar-logo" src="Vinayagar-removebg-preview.png" alt="Vinayagar Logo">
 
-            <!-- VD Monogram Logo -->
+            <!-- Enlarged VD Monogram Logo -->
             <img class="vd-monogram" src="VD-logo.png" alt="VD Monogram Logo">
 
             <div class="orn-line">✦</div>
@@ -586,7 +586,7 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
     </div>
 </div>
 
-<!-- Background Audio (Linked to your uploaded audio file) -->
+<!-- Background Audio -->
 <audio id="bgMusic" loop preload="none">
     <source src="bgmusic.mp3" type="audio/mpeg">
 </audio>
@@ -616,6 +616,10 @@ let isPlaying = false;
 function startExperience() {
     document.getElementById('muruganOpen').classList.add('closed');
     document.body.classList.remove('modal-active');
+    
+    // Explicitly scroll to top of 1st slide landing page
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    
     toggleMusic();
 }
 
