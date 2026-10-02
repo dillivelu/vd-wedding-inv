@@ -328,6 +328,7 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
     width: 100%;
     height: 320px;
     object-fit: cover;
+    object-position: top center;
     border-radius: 12px;
     border: 2px solid var(--gold);
     background-color: #f2e3d5;
@@ -335,10 +336,10 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
 .person-title { color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: 12px; margin-top: 10px; }
 .person-name { color: var(--maroon); font-size: 22px; margin: 8px 0 4px; }
 
-/* Kids Grid Styling */
+/* Kids Grid Styling (Fixed Image Height & Framing) */
 .kids-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
@@ -351,11 +352,12 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
 }
 .kid-card img {
     width: 100%;
-    height: 240px;
-    object-fit: cover;
+    height: 280px;
+    object-fit: contain; /* Prevents head trimming by showing full photo inside frame */
+    object-position: top center;
     border-radius: 12px;
     border: 2px solid var(--gold);
-    background-color: #f2e3d5;
+    background-color: #FFFAF0;
 }
 .kid-name { color: var(--maroon); font-size: 20px; margin: 12px 0 4px; font-weight: 600; }
 
@@ -563,7 +565,7 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
                 <img src="Bride 01 photo.jpeg" alt="Dhivya P" loading="lazy">
                 <div class="person-title">The Bride</div>
                 <h3 class="person-name">Dhivya P</h3>
-                <p>Daughter of Mr. Palanivel S &amp;<br>Late Mrs. Malika Palanivel</p>
+                <p>Daughter of Mr. Palanivel S &amp;<br>Late Mrs. Malliga Palanivel</p>
             </div>
         </div>
     </section>
@@ -685,7 +687,7 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
 
         <!-- Download Card -->
         <div class="action-box">
-            <div style="font-size:30px;">🖼️️</div>
+            <div style="font-size:30px;">🖼</div>
             <h4>Download Card</h4>
             <p>Save the invitation card as an image</p>
             <button class="btn" onclick="downloadCardImage()">Download</button>
