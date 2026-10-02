@@ -336,10 +336,10 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
 .person-title { color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: 12px; margin-top: 10px; }
 .person-name { color: var(--maroon); font-size: 22px; margin: 8px 0 4px; }
 
-/* Kids Grid Styling */
+/* Kids Grid Styling (No Empty Gaps, Full Frame Cover) */
 .kids-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
@@ -352,12 +352,13 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
 }
 .kid-card img {
     width: 100%;
-    height: 280px;
-    object-fit: contain;
-    object-position: top center;
+    height: 310px;
+    object-fit: cover;
+    object-position: 50% 15%; /* Ensures faces/heads stay perfectly framed without top cutoffs */
     border-radius: 12px;
     border: 2px solid var(--gold);
-    background-color: #FFFAF0;
+    background-color: #f2e3d5;
+    display: block;
 }
 .kid-name { color: var(--maroon); font-size: 20px; margin: 12px 0 4px; font-weight: 600; }
 
@@ -639,10 +640,10 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
                 <div class="kid-name">Tanesh &amp; Tarunikaa</div>
             </div>
 
-            <!-- Nila -->
+            <!-- Nilanika -->
             <div class="kid-card">
-                <img src="Nila.png" onerror="this.onerror=null; this.src='Nila.jpeg'; if(!this.src) this.src='Nila.jpg';" alt="Nila" loading="lazy">
-                <div class="kid-name">Nila</div>
+                <img src="Nila.png" onerror="this.onerror=null; this.src='Nila.jpeg'; if(!this.src) this.src='Nila.jpg';" alt="Nilanika" loading="lazy">
+                <div class="kid-name">Nilanika</div>
             </div>
 
             <!-- Aradhya -->
