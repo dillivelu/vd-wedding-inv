@@ -36,7 +36,7 @@ body.modal-active {
 }
 
 /* =========================================================
-   RICH TRADITIONAL FULLSCREEN INTRO SCREEN (MATCHING MOCKUP)
+   CLEAN TRADITIONAL FULLSCREEN INTRO SCREEN
    ========================================================= */
 .murugan-open {
     position: fixed;
@@ -67,41 +67,6 @@ body.modal-active {
     background-position: top center;
     z-index: 1002;
     pointer-events: none;
-}
-
-/* Side Hanging Diyas (CSS/SVG Rendered) */
-.hanging-diya-left, .hanging-diya-right {
-    position: absolute;
-    top: 0;
-    width: 60px;
-    height: 280px;
-    z-index: 1003;
-    pointer-events: none;
-}
-.hanging-diya-left { left: clamp(10px, 6vw, 80px); }
-.hanging-diya-right { right: clamp(10px, 6vw, 80px); }
-
-/* Left & Right Banana Leaves Decorative Accents */
-.banana-leaf-left, .banana-leaf-right {
-    position: absolute;
-    bottom: -20px;
-    width: clamp(120px, 20vw, 220px);
-    height: clamp(180px, 30vw, 320px);
-    z-index: 1001;
-    pointer-events: none;
-    opacity: 0.9;
-}
-.banana-leaf-left {
-    left: -20px;
-    background: radial-gradient(ellipse at bottom left, #2d5a27, #1e3c1a, transparent 70%);
-    border-radius: 0 100% 0 0;
-    transform: rotate(15deg);
-}
-.banana-leaf-right {
-    right: -20px;
-    background: radial-gradient(ellipse at bottom right, #2d5a27, #1e3c1a, transparent 70%);
-    border-radius: 100% 0 0 0;
-    transform: rotate(-15deg);
 }
 
 /* Center Royal Gold Bordered Card */
@@ -578,28 +543,10 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
 </head>
 <body class="modal-active">
 
-<!-- Fullscreen Opening Intro Screen (Recreated Design) -->
+<!-- Fullscreen Opening Intro Screen -->
 <div class="murugan-open" id="muruganOpen">
     <!-- Top Garland -->
     <div class="intro-garland"></div>
-
-    <!-- Hanging Diyas (Left & Right) -->
-    <svg class="hanging-diya-left" viewBox="0 0 60 280">
-        <line x1="30" y1="0" x2="30" y2="180" stroke="#D4AF37" stroke-width="2" />
-        <path d="M 20,180 L 40,180 L 45,210 L 15,210 Z" fill="#B8860B" />
-        <ellipse cx="30" cy="210" rx="20" ry="8" fill="#D4AF37" />
-        <path d="M 30,195 Q 35,185 30,175 Q 25,185 30,195" fill="#FF8C00" />
-    </svg>
-    <svg class="hanging-diya-right" viewBox="0 0 60 280">
-        <line x1="30" y1="0" x2="30" y2="180" stroke="#D4AF37" stroke-width="2" />
-        <path d="M 20,180 L 40,180 L 45,210 L 15,210 Z" fill="#B8860B" />
-        <ellipse cx="30" cy="210" rx="20" ry="8" fill="#D4AF37" />
-        <path d="M 30,195 Q 35,185 30,175 Q 25,185 30,195" fill="#FF8C00" />
-    </svg>
-
-    <!-- Side Banana Leaf Accents -->
-    <div class="banana-leaf-left"></div>
-    <div class="banana-leaf-right"></div>
 
     <!-- Main Gold Frame Card -->
     <div class="murugan-card">
