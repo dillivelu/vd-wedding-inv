@@ -35,12 +35,14 @@ body.modal-active {
     height: 100vh;
 }
 
-/* Fullscreen Opening Intro Screen */
+/* =========================================================
+   RICH TRADITIONAL FULLSCREEN INTRO SCREEN (MATCHING MOCKUP)
+   ========================================================= */
 .murugan-open {
     position: fixed;
     inset: 0;
     z-index: 1000;
-    background: radial-gradient(circle at 50% 35%, #FFFDF5, #F5DFCF 55%, #EAD0BF);
+    background: radial-gradient(circle at 50% 40%, #FFFDF5 0%, #F6E2CD 50%, #E2C5B0 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,32 +50,148 @@ body.modal-active {
     padding: 20px;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 .murugan-open.closed { display: none; }
-.murugan-card {
-    max-width: 500px;
-    width: 100%;
-    padding: 35px 25px;
-    border: 2px solid var(--gold);
-    border-radius: 20px;
-    background: #FFFAF0EF;
-    box-shadow: 0 20px 60px rgba(77, 35, 30, 0.25);
+
+/* Top Floral Garland Layer */
+.intro-garland {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: clamp(60px, 12vw, 110px);
+    background-image: url('Top_layer_design-removebg-preview.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: top center;
+    z-index: 1002;
+    pointer-events: none;
 }
-.om-symbol { font-size: 55px; color: var(--maroon); line-height: 1; }
+
+/* Side Hanging Diyas (CSS/SVG Rendered) */
+.hanging-diya-left, .hanging-diya-right {
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 280px;
+    z-index: 1003;
+    pointer-events: none;
+}
+.hanging-diya-left { left: clamp(10px, 6vw, 80px); }
+.hanging-diya-right { right: clamp(10px, 6vw, 80px); }
+
+/* Left & Right Banana Leaves Decorative Accents */
+.banana-leaf-left, .banana-leaf-right {
+    position: absolute;
+    bottom: -20px;
+    width: clamp(120px, 20vw, 220px);
+    height: clamp(180px, 30vw, 320px);
+    z-index: 1001;
+    pointer-events: none;
+    opacity: 0.9;
+}
+.banana-leaf-left {
+    left: -20px;
+    background: radial-gradient(ellipse at bottom left, #2d5a27, #1e3c1a, transparent 70%);
+    border-radius: 0 100% 0 0;
+    transform: rotate(15deg);
+}
+.banana-leaf-right {
+    right: -20px;
+    background: radial-gradient(ellipse at bottom right, #2d5a27, #1e3c1a, transparent 70%);
+    border-radius: 100% 0 0 0;
+    transform: rotate(-15deg);
+}
+
+/* Center Royal Gold Bordered Card */
+.murugan-card {
+    position: relative;
+    z-index: 1005;
+    max-width: 480px;
+    width: 100%;
+    padding: 35px 25px 30px;
+    border: 3px solid var(--gold);
+    border-radius: 24px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF7 100%);
+    box-shadow: 0 25px 60px rgba(77, 35, 30, 0.28), inset 0 0 0 6px #FFFDF8, inset 0 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
+/* Corner Ornamental Gold Accents */
+.card-corner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--gold);
+}
+.corner-tl { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+.corner-tr { top: 12px; right: 12px; border-left: none; border-bottom: none; }
+.corner-bl { bottom: 12px; left: 12px; border-right: none; border-top: none; }
+.corner-br { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+
+.om-symbol {
+    font-size: 50px;
+    color: var(--maroon);
+    line-height: 1;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
 .murugan-img-preview {
-    width: 220px;
-    height: 300px;
+    width: 200px;
+    height: 260px;
     object-fit: cover;
-    border-radius: 14px;
+    border-radius: 20px;
     border: 3px solid var(--gold);
-    margin: 18px auto;
+    margin: 16px auto;
+    display: block;
     background-color: #f2e3d5;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.intro-blessing-title {
+    color: var(--maroon);
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin: 10px 0 2px;
+    font-style: italic;
+}
+
+.intro-god-name {
+    color: var(--maroon);
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 0 22px;
+    letter-spacing: 0.5px;
+}
+
+/* Elegant Maroon Pill Button */
+.intro-enter-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(180deg, #6B1017 0%, #3D090E 100%);
+    color: #FFE9AD;
+    border: 2px solid var(--gold);
+    padding: 14px 36px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(91, 14, 20, 0.4);
+    transition: all 0.3s ease;
+}
+.intro-enter-btn:hover {
+    transform: translateY(-2px);
+    background: var(--gold);
+    color: var(--maroon);
 }
 
 /* =========================================================
-   NATURAL 3D REALISTIC BUTTERFLY ANIMATION (REDUCED TO 2)
+   NATURAL 3D REALISTIC BUTTERFLY ANIMATION
    ========================================================= */
 .butterfly-container {
     position: fixed;
@@ -119,11 +237,9 @@ body.modal-active {
     100% { transform: translateY(-120vh) translateX(-20px) rotate(-8deg) scale(0.6); opacity: 0; }
 }
 
-/* Butterfly 1 (Left Side) */
 .bf-1 { left: 15%; animation-duration: 14s; animation-delay: 0s; }
 .bf-1 .butterfly-wings { width: 45px; height: 45px; animation-duration: 0.3s; }
 
-/* Butterfly 2 (Right Side) */
 .bf-2 { left: 75%; animation-duration: 18s; animation-delay: 5s; }
 .bf-2 .butterfly-wings { width: 52px; height: 52px; animation-duration: 0.35s; }
 
@@ -462,21 +578,52 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
 </head>
 <body class="modal-active">
 
-<!-- Fullscreen Opening Intro Screen -->
+<!-- Fullscreen Opening Intro Screen (Recreated Design) -->
 <div class="murugan-open" id="muruganOpen">
+    <!-- Top Garland -->
+    <div class="intro-garland"></div>
+
+    <!-- Hanging Diyas (Left & Right) -->
+    <svg class="hanging-diya-left" viewBox="0 0 60 280">
+        <line x1="30" y1="0" x2="30" y2="180" stroke="#D4AF37" stroke-width="2" />
+        <path d="M 20,180 L 40,180 L 45,210 L 15,210 Z" fill="#B8860B" />
+        <ellipse cx="30" cy="210" rx="20" ry="8" fill="#D4AF37" />
+        <path d="M 30,195 Q 35,185 30,175 Q 25,185 30,195" fill="#FF8C00" />
+    </svg>
+    <svg class="hanging-diya-right" viewBox="0 0 60 280">
+        <line x1="30" y1="0" x2="30" y2="180" stroke="#D4AF37" stroke-width="2" />
+        <path d="M 20,180 L 40,180 L 45,210 L 15,210 Z" fill="#B8860B" />
+        <ellipse cx="30" cy="210" rx="20" ry="8" fill="#D4AF37" />
+        <path d="M 30,195 Q 35,185 30,175 Q 25,185 30,195" fill="#FF8C00" />
+    </svg>
+
+    <!-- Side Banana Leaf Accents -->
+    <div class="banana-leaf-left"></div>
+    <div class="banana-leaf-right"></div>
+
+    <!-- Main Gold Frame Card -->
     <div class="murugan-card">
+        <div class="card-corner corner-tl"></div>
+        <div class="card-corner corner-tr"></div>
+        <div class="card-corner corner-bl"></div>
+        <div class="card-corner corner-br"></div>
+
         <div class="om-symbol">ॐ</div>
-        <p style="letter-spacing:2px; color:var(--maroon); margin:5px 0;">ॐ சரவணபவ</p>
+        <p style="letter-spacing:2px; color:var(--maroon); margin:6px 0 12px; font-weight:600;">ஓம் சரவணபவ</p>
 
         <!-- Lord Murugan Image -->
         <img class="murugan-img-preview" src="Muruga.jpg" onerror="this.onerror=null; this.src='Muruga.jpeg';" alt="Lord Murugan" loading="eager">
 
-        <h2 style="color:var(--maroon); font-weight:normal; margin:12px 0 20px; font-size: 24px;">With the Blessings of<br>Lord Murugan</h2>
-        <button class="btn" style="padding: 14px 30px; font-size: 16px;" onclick="startExperience()">Enter Invitation</button>
+        <p class="intro-blessing-title">With the Divine Blessings of</p>
+        <h2 class="intro-god-name">Lord Murugan</h2>
+
+        <button class="intro-enter-btn" onclick="startExperience()">
+            <span>❖ VIEW INVITATION ➔</span>
+        </button>
     </div>
 </div>
 
-<!-- Flying Blue Butterflies Overlay (Reduced to 2) -->
+<!-- Flying Blue Butterflies Overlay -->
 <div class="butterfly-container">
     <div class="butterfly-wrapper bf-1"><div class="butterfly-wings"></div></div>
     <div class="butterfly-wrapper bf-2"><div class="butterfly-wings"></div></div>
