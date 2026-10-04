@@ -29,30 +29,36 @@ body {
     overflow-x: hidden;
 }
 
-/* Locked scroll state for Intro Page */
+/* Completely hides underlying page content while intro screen is open */
 body.modal-active {
     overflow: hidden !important;
-    height: 100vh;
+    height: 100vh !important;
+    position: fixed !important;
+    width: 100vw !important;
 }
 
 /* =========================================================
-   CLEAN TRADITIONAL FULLSCREEN INTRO SCREEN
+   CLEAN TRADITIONAL FULLSCREEN INTRO SCREEN (FULL COVERAGE)
    ========================================================= */
 .murugan-open {
     position: fixed;
-    inset: 0;
-    z-index: 1000;
-    background: radial-gradient(circle at 50% 40%, #FFFDF5 0%, #F6E2CD 50%, #E2C5B0 100%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh; /* Handles mobile dynamic address bars */
+    z-index: 10000;
+    background: radial-gradient(circle at 50% 40%, #FFFDF5 0%, #F6E2CD 55%, #E2C5B0 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 20px;
-    width: 100vw;
-    height: 100vh;
+    padding: 20px 15px;
     overflow: hidden;
 }
-.murugan-open.closed { display: none; }
+.murugan-open.closed { display: none !important; }
 
 /* Top Floral Garland Layer */
 .intro-garland {
@@ -65,37 +71,38 @@ body.modal-active {
     background-repeat: repeat-x;
     background-size: contain;
     background-position: top center;
-    z-index: 1002;
+    z-index: 10002;
     pointer-events: none;
 }
 
 /* Center Royal Gold Bordered Card */
 .murugan-card {
     position: relative;
-    z-index: 1005;
-    max-width: 480px;
+    z-index: 10005;
+    max-width: 440px;
     width: 100%;
-    padding: 35px 25px 30px;
+    padding: 30px 20px 25px;
     border: 3px solid var(--gold);
     border-radius: 24px;
     background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF7 100%);
     box-shadow: 0 25px 60px rgba(77, 35, 30, 0.28), inset 0 0 0 6px #FFFDF8, inset 0 0 0 8px rgba(212, 175, 55, 0.5);
+    margin: auto;
 }
 
 /* Corner Ornamental Gold Accents */
 .card-corner {
     position: absolute;
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     border: 2px solid var(--gold);
 }
-.corner-tl { top: 12px; left: 12px; border-right: none; border-bottom: none; }
-.corner-tr { top: 12px; right: 12px; border-left: none; border-bottom: none; }
-.corner-bl { bottom: 12px; left: 12px; border-right: none; border-top: none; }
-.corner-br { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+.corner-tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+.corner-tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+.corner-bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+.corner-br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
 
 .om-symbol {
-    font-size: 50px;
+    font-size: 46px;
     color: var(--maroon);
     line-height: 1;
     font-weight: bold;
@@ -103,12 +110,12 @@ body.modal-active {
 }
 
 .murugan-img-preview {
-    width: 200px;
-    height: 260px;
+    width: clamp(170px, 45vw, 200px);
+    height: clamp(220px, 55vw, 250px);
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 18px;
     border: 3px solid var(--gold);
-    margin: 16px auto;
+    margin: 14px auto;
     display: block;
     background-color: #f2e3d5;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
@@ -116,17 +123,17 @@ body.modal-active {
 
 .intro-blessing-title {
     color: var(--maroon);
-    font-size: 15px;
+    font-size: 14px;
     letter-spacing: 1px;
-    margin: 10px 0 2px;
+    margin: 8px 0 2px;
     font-style: italic;
 }
 
 .intro-god-name {
     color: var(--maroon);
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
-    margin: 0 0 22px;
+    margin: 0 0 18px;
     letter-spacing: 0.5px;
 }
 
@@ -139,11 +146,11 @@ body.modal-active {
     background: linear-gradient(180deg, #6B1017 0%, #3D090E 100%);
     color: #FFE9AD;
     border: 2px solid var(--gold);
-    padding: 14px 36px;
+    padding: 12px 30px;
     border-radius: 50px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
     cursor: pointer;
     box-shadow: 0 6px 20px rgba(91, 14, 20, 0.4);
@@ -867,7 +874,7 @@ function startExperience() {
     document.getElementById('muruganOpen').classList.add('closed');
     document.body.classList.remove('modal-active');
     
-    // Scroll to top of 1st slide landing page
+    // Explicitly scroll to top of main landing slide
     window.scrollTo({ top: 0, behavior: 'instant' });
     
     toggleMusic();
