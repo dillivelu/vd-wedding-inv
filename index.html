@@ -27,6 +27,7 @@ body {
     font-family: 'Georgia', 'Times New Roman', serif;
     background: var(--cream);
     overflow-x: hidden;
+    font-variant-numeric: lining-nums tabular-nums; /* Forces clean, aligned formal numbers globally */
 }
 
 /* Completely hides underlying page content while intro screen is open */
@@ -251,6 +252,7 @@ body.modal-active {
     margin: 16px 0 22px;
     text-transform: uppercase;
     font-weight: 600;
+    font-variant-numeric: lining-nums tabular-nums;
 }
 
 .orn-line {
@@ -403,10 +405,10 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
     margin: 20px auto;
 }
 .count { background: var(--maroon); color: #fff; padding: 12px 5px; border-radius: 12px; }
-.count b { font-size: 24px; display: block; color: #FFE9AD; }
+.count b { font-size: 24px; display: block; color: #FFE9AD; font-variant-numeric: lining-nums tabular-nums; }
 .count span { font-size: 10px; letter-spacing: 1px; }
 
-/* Event Cards */
+/* Event Cards Formal Number & Text Styling */
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
 .card {
     background: #FFFDF8;
@@ -416,11 +418,27 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
     box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     text-align: center;
 }
+.card-date {
+    color: var(--gold);
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0;
+    font-variant-numeric: lining-nums tabular-nums;
+    font-family: 'Georgia', serif;
+}
+.card-time {
+    font-weight: bold;
+    font-variant-numeric: lining-nums tabular-nums;
+    font-family: 'Georgia', serif;
+    color: var(--text-dark);
+}
 .venue-text {
     line-height: 1.8;
     margin: 18px 0;
     color: var(--text-dark);
     padding: 0 10px;
+    font-variant-numeric: lining-nums tabular-nums;
+    font-family: 'Georgia', serif;
 }
 
 /* Action Options Grid */
@@ -492,7 +510,44 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
 }
 #qrcode { margin: 15px auto; display: flex; justify-content: center; }
 
-footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 30px 18px; }
+/* =========================================================
+   CUSTOM CONCLUSION FOOTER
+   ========================================================= */
+.conclusion-footer {
+    background: #3B080C;
+    color: #FAF2E3;
+    text-align: center;
+    padding: 45px 20px 40px;
+    position: relative;
+}
+.footer-om {
+    font-size: 38px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 12px;
+}
+.footer-couple-name {
+    font-size: clamp(22px, 5vw, 32px);
+    color: #FFFFFF;
+    margin: 8px 0;
+    font-weight: normal;
+    white-space: nowrap;
+}
+.footer-blessing-text {
+    font-size: clamp(14px, 3.2vw, 18px);
+    color: #FFE9AD;
+    margin: 12px 0 18px;
+    font-style: italic;
+    font-weight: 300;
+}
+.footer-date-sub {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    color: #D4AF37;
+    text-transform: uppercase;
+    opacity: 0.9;
+    font-variant-numeric: lining-nums tabular-nums;
+}
 </style>
 </head>
 <body class="modal-active">
@@ -699,8 +754,8 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
             <!-- Reception Card -->
             <div class="card">
                 <h3 style="color:var(--maroon); margin-top:0;">🎉 Reception</h3>
-                <p style="color:var(--gold); font-size:22px; font-weight:bold; margin: 10px 0;">12-11-2026</p>
-                <p style="font-weight: bold;">Thursday • 06:00 PM onwards</p>
+                <p class="card-date">12-11-2026</p>
+                <p class="card-time">Thursday • 06:00 PM onwards</p>
                 
                 <div class="venue-text">
                     <p style="margin: 5px 0;"><strong>Venue:</strong></p>
@@ -714,8 +769,8 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
             <!-- Wedding Card -->
             <div class="card">
                 <h3 style="color:var(--maroon); margin-top:0;">💍 Muhurtham</h3>
-                <p style="color:var(--gold); font-size:22px; font-weight:bold; margin: 10px 0;">13-11-2026</p>
-                <p style="font-weight: bold;">Friday • 06:00 AM to 07:30 AM</p>
+                <p class="card-date">13-11-2026</p>
+                <p class="card-time">Friday • 06:00 AM to 07:30 AM</p>
                 
                 <div class="venue-text">
                     <p style="margin: 5px 0;"><strong>Venue:</strong></p>
@@ -770,8 +825,12 @@ footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 3
     </div>
 </section>
 
-<footer>
-    <p>We look forward to welcoming you and celebrating together!</p>
+<!-- Conclusion Footer Section -->
+<footer class="conclusion-footer">
+    <div class="footer-om">ॐ</div>
+    <h2 class="footer-couple-name">Vadivel &amp; Dhivya</h2>
+    <p class="footer-blessing-text">With love, laughter &amp; the blessings of our families</p>
+    <p class="footer-date-sub">Wedding Invitation · 13 November 2026</p>
 </footer>
 
 <!-- QR Code Modal Window -->
