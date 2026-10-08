@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#5B0E14">
+<meta name="theme-color" content="#4A0E0B">
 <title>Vadivel & Dhivya — Wedding Invitation</title>
 
 <!-- QR Code & html2canvas Libraries -->
@@ -29,9 +29,12 @@ body {
     overflow-x: hidden;
 }
 
-/* Fixes blank screen lock issues */
+/* Completely hides underlying page content while intro screen is open */
 body.modal-active {
-    overflow: hidden;
+    overflow: hidden !important;
+    height: 100vh !important;
+    position: fixed !important;
+    width: 100vw !important;
 }
 
 /* =========================================================
@@ -41,21 +44,21 @@ body.modal-active {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
     z-index: 10000;
-    background: #FAF2E3 radial-gradient(circle at 50% 40%, #FFFDF5 0%, #F6E2CD 55%, #E2C5B0 100%);
+    background: radial-gradient(circle at 50% 40%, #FFFDF5 0%, #F6E2CD 55%, #E2C5B0 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 20px 15px;
-    overflow-y: auto;
+    overflow: hidden;
 }
-
-.murugan-open.closed { 
-    display: none !important; 
-}
+.murugan-open.closed { display: none !important; }
 
 /* Top Floral Garland Layer */
 .intro-garland {
@@ -81,7 +84,7 @@ body.modal-active {
     padding: 30px 20px 25px;
     border: 3px solid var(--gold);
     border-radius: 24px;
-    background: #FFFFFF linear-gradient(180deg, #FFFFFF 0%, #FFFDF7 100%);
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF7 100%);
     box-shadow: 0 25px 60px rgba(77, 35, 30, 0.28), inset 0 0 0 6px #FFFDF8, inset 0 0 0 8px rgba(212, 175, 55, 0.5);
     margin: auto;
 }
@@ -212,4 +215,667 @@ body.modal-active {
     height: auto;
     margin: 5px auto 15px;
     display: block;
-    filter: drop-shadow(0 3px 8px rgba(0
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.15));
+}
+
+.sub-title {
+    font-size: clamp(11px, 2.2vw, 14px);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #5B0E14;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.names {
+    font-size: clamp(24px, 6.2vw, 68px);
+    color: var(--maroon);
+    margin: 10px 0;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    white-space: nowrap;
+}
+.amp {
+    font-size: 0.85em;
+    color: var(--gold);
+    font-style: italic;
+    font-weight: normal;
+    padding: 0 4px;
+}
+
+.hero-date {
+    font-size: clamp(14px, 3.2vw, 22px);
+    letter-spacing: 2px;
+    color: var(--maroon);
+    margin: 16px 0 22px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.orn-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 15px 0;
+    color: var(--gold);
+}
+.orn-line::before, .orn-line::after {
+    content: "";
+    height: 1px;
+    width: clamp(40px, 18vw, 110px);
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.hero-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+.hero-btn {
+    display: inline-block;
+    border: 2px solid var(--gold);
+    color: #FFE9AD;
+    background: linear-gradient(180deg, #6B1017 0%, #420A10 100%);
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(91, 14, 20, 0.3);
+    cursor: pointer;
+    font-size: clamp(13px, 3vw, 16px);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.hero-btn:hover {
+    transform: translateY(-2px);
+    background: var(--gold);
+    color: var(--maroon);
+}
+
+/* =========================================================
+   SECTIONS & UTILITIES
+   ========================================================= */
+.btn {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: #fff;
+    background: var(--maroon);
+    padding: 12px 22px;
+    border-radius: 30px;
+    text-decoration: none;
+    margin: 8px 4px;
+    box-shadow: 0 4px 15px rgba(74, 14, 11, 0.2);
+    cursor: pointer;
+    font-size: 14px;
+}
+.btn:hover { background: var(--gold); color: var(--maroon); }
+
+section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center; }
+.section-title { color: var(--maroon); font-size: 30px; font-weight: normal; margin-bottom: 8px; }
+.orn { color: var(--gold); font-size: 20px; margin-bottom: 24px; }
+
+.quote-box {
+    background: #FFFDF8;
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    padding: 35px 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    margin: 20px 0;
+}
+.quote-tamil {
+    font-size: 20px;
+    color: var(--maroon);
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.quote-text {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+/* Couple & Family Grid Styling */
+.couple-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+.person-card {
+    background: #FFFDF8;
+    border: 1px solid rgba(201, 155, 66, 0.4);
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+.person-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 12px;
+    border: 2px solid var(--gold);
+    background-color: #f2e3d5;
+}
+.person-title { color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: 12px; margin-top: 10px; }
+.person-name { color: var(--maroon); font-size: 22px; margin: 8px 0 4px; }
+
+/* Kids Grid Styling */
+.kids-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+.kid-card {
+    background: #FFFDF8;
+    border: 1px solid rgba(201, 155, 66, 0.4);
+    border-radius: 18px;
+    padding: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+.kid-card img {
+    width: 100%;
+    height: 310px;
+    object-fit: cover;
+    object-position: 50% 15%;
+    border-radius: 12px;
+    border: 2px solid var(--gold);
+    background-color: #f2e3d5;
+    display: block;
+}
+.kid-name { color: var(--maroon); font-size: 20px; margin: 12px 0 4px; font-weight: 600; }
+
+/* Countdown */
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 480px;
+    margin: 20px auto;
+}
+.count { background: var(--maroon); color: #fff; padding: 12px 5px; border-radius: 12px; }
+.count b { font-size: 24px; display: block; color: #FFE9AD; }
+.count span { font-size: 10px; letter-spacing: 1px; }
+
+/* Event Cards */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.card {
+    background: #FFFDF8;
+    border: 1px solid rgba(201, 155, 66, 0.5);
+    border-radius: 18px;
+    padding: 30px 22px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    text-align: center;
+}
+.venue-text {
+    line-height: 1.8;
+    margin: 18px 0;
+    color: var(--text-dark);
+    padding: 0 10px;
+}
+
+/* Action Options Grid */
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+.action-box {
+    background: #FFFDF8;
+    border: 1px solid rgba(201, 155, 66, 0.4);
+    border-radius: 16px;
+    padding: 20px 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+}
+.action-box h4 { color: var(--maroon); margin: 10px 0 5px; font-size: 18px; }
+.action-box p { font-size: 13px; color: #666; margin-bottom: 12px; line-height: 1.4; }
+
+/* Petals Animation */
+.petal {
+    position: fixed;
+    top: -30px;
+    font-size: 18px;
+    color: #D86B76;
+    opacity: 0.6;
+    z-index: 3;
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+@keyframes fall {
+    to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* Floating Music Button */
+.sticky { position: fixed; right: 16px; bottom: 16px; z-index: 20; }
+.float {
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: var(--maroon);
+    color: #fff;
+    font-size: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+/* Modal Popup for QR Codes */
+.qr-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.qr-modal.active { display: flex; }
+.qr-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+}
+#qrcode { margin: 15px auto; display: flex; justify-content: center; }
+
+footer { background: var(--deep); color: #F9EAD5; text-align: center; padding: 30px 18px; }
+</style>
+</head>
+<body class="modal-active">
+
+<!-- Fullscreen Opening Intro Screen -->
+<div class="murugan-open" id="muruganOpen">
+    <!-- Top Garland -->
+    <div class="intro-garland"></div>
+
+    <!-- Main Gold Frame Card -->
+    <div class="murugan-card">
+        <div class="card-corner corner-tl"></div>
+        <div class="card-corner corner-tr"></div>
+        <div class="card-corner corner-bl"></div>
+        <div class="card-corner corner-br"></div>
+
+        <div class="om-symbol">ॐ</div>
+        <p style="letter-spacing:2px; color:var(--maroon); margin:6px 0 12px; font-weight:600;">ஓம் சரவணபவ</p>
+
+        <!-- Lord Murugan Image -->
+        <img class="murugan-img-preview" src="Muruga.jpg" onerror="this.onerror=null; this.src='Muruga.jpeg';" alt="Lord Murugan" loading="eager">
+
+        <p class="intro-blessing-title">With the Divine Blessings of</p>
+        <h2 class="intro-god-name">Lord Murugan</h2>
+
+        <button class="intro-enter-btn" onclick="startExperience()">
+            <span>❖ VIEW INVITATION ➔</span>
+        </button>
+    </div>
+</div>
+
+<!-- Floating Petals -->
+<div class="petal" style="left:10%; animation-duration:9s;">❀</div>
+<div class="petal" style="left:35%; animation-duration:12s; animation-delay:2s;">✿</div>
+<div class="petal" style="left:65%; animation-duration:10s; animation-delay:4s;">❀</div>
+<div class="petal" style="left:85%; animation-duration:13s; animation-delay:1s;">✿</div>
+
+<!-- Floating Controls -->
+<div class="sticky">
+    <button class="float" id="musicBtn" onclick="toggleMusic()">🎵</button>
+</div>
+
+<!-- Printable / Downloadable Card Area -->
+<div id="downloadableCard">
+
+    <!-- HERO SECTION -->
+    <header class="hero" id="home">
+        <div class="hero-top-garland"></div>
+
+        <div class="hero-content">
+            <img class="vinayagar-logo" src="Vinayagar-removebg-preview.png" alt="Vinayagar Logo">
+            <img class="vd-monogram" src="VD-logo.png" alt="VD Monogram Logo">
+
+            <div class="orn-line">✦</div>
+            <p class="sub-title">WEDDING INVITATION</p>
+            
+            <h1 class="names">Vadivel <span class="amp">&amp;</span> Dhivya</h1>
+            
+            <p class="hero-date">FRIDAY, NOVEMBER 13, 2026</p>
+
+            <div class="orn-line">✦</div>
+
+            <div class="hero-btn-group">
+                <a class="hero-btn" href="#events">❖ View Events ❖</a>
+                <a class="hero-btn" href="#couple">❖ The Couple ❖</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Countdown Section -->
+    <section>
+        <h2 class="section-title">Counting Down To The Big Day</h2>
+        <div class="countdown">
+            <div class="count"><b id="cd-days">00</b><span>DAYS</span></div>
+            <div class="count"><b id="cd-hours">00</b><span>HOURS</span></div>
+            <div class="count"><b id="cd-mins">00</b><span>MINS</span></div>
+            <div class="count"><b id="cd-secs">00</b><span>SECS</span></div>
+        </div>
+    </section>
+
+    <!-- Blessings & Invitation Message Section -->
+    <section>
+        <div class="quote-box">
+            <p class="quote-tamil">“ மங்கலம் பொங்கும் நன்னாளினிலே... ”</p>
+            <p class="quote-text">
+                "Two lives, two hearts, joined together in friendship, united forever in love."
+            </p>
+            <p style="margin-top:20px; line-height:1.7; color:var(--text-dark);">
+                We cordially invite you and your family to join us in celebrating the holy matrimony of <strong>Vadivel &amp; Dhivya</strong>.<br>Your gracious presence and heartfelt blessings will make our special day complete.
+            </p>
+        </div>
+    </section>
+
+    <!-- Couple Section -->
+    <section id="couple">
+        <h2 class="section-title">The Happy Couple</h2>
+        <div class="orn">✦ ✦ ✦</div>
+        
+        <div class="couple-grid">
+            <div class="person-card">
+                <img src="Groom 01 photo.jpeg" onerror="this.onerror=null; this.src='Groom 01 photo.jpg';" alt="Vadivel G" loading="lazy">
+                <div class="person-title">The Groom</div>
+                <h3 class="person-name">Vadivel G</h3>
+                <p>Son of Mr. Ganesan M &amp;<br>Mrs. Ellammal Ganesan</p>
+            </div>
+            <div class="person-card">
+                <img src="Bride 01 photo.jpeg" onerror="this.onerror=null; this.src='Bride 01 photo.jpg';" alt="Dhivya P" loading="lazy">
+                <div class="person-title">The Bride</div>
+                <h3 class="person-name">Dhivya P</h3>
+                <p>Daughter of Mr. Palanivel S &amp;<br>Late Mrs. Malliga Palanivel</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parents Section -->
+    <section id="parents">
+        <h2 class="section-title">Proud Parents</h2>
+        <div class="orn">✦ ✦ ✦</div>
+
+        <div class="couple-grid">
+            <!-- Groom's Parents -->
+            <div class="person-card">
+                <img src="Groom's Parents.png" onerror="this.onerror=null; this.src='Groom\'s Parents.jpeg'; if(!this.src) this.src='Groom\'s Parents.jpg';" alt="Groom's Parents" loading="lazy">
+                <div class="person-title">Groom's Parents</div>
+                <h3 class="person-name">Mr. Ganesan M &amp;<br>Mrs. Ellammal Ganesan</h3>
+            </div>
+
+            <!-- Bride's Parents -->
+            <div class="person-card">
+                <img src="Bride's Parents.png" onerror="this.onerror=null; this.src='Bride\'s Parents.jpeg'; if(!this.src) this.src='Bride\'s Parents.jpg';" alt="Bride's Parents" loading="lazy">
+                <div class="person-title">Bride's Parents</div>
+                <h3 class="person-name">Mr. Palanivel S &amp;<br>Late Mrs. Malliga Palanivel</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loving Family Section -->
+    <section id="family">
+        <h2 class="section-title">Loving Family</h2>
+        <div class="orn">✦ ✦ ✦</div>
+
+        <!-- Groom's Family -->
+        <h3 style="color:var(--maroon); font-size:22px; margin: 20px 0 10px; font-weight: normal;">— Groom's Family —</h3>
+        <div class="couple-grid">
+            <!-- 1st Sister Family -->
+            <div class="person-card">
+                <img src="Groom's 1st Sister.png" onerror="this.onerror=null; this.src='Groom\'s 1st Sister.jpeg'; if(!this.src) this.src='Groom\'s 1st Sister.jpg';" alt="Pavithra & Venkatesh" loading="lazy">
+                <div class="person-title">Groom's 1st Sister</div>
+                <h3 class="person-name">Pavithra &amp; Venkatesh</h3>
+            </div>
+
+            <!-- 2nd Sister Family -->
+            <div class="person-card">
+                <img src="Groom's 2nd Sister.png" onerror="this.onerror=null; this.src='Groom\'s 2nd Sister.jpeg'; if(!this.src) this.src='Groom\'s 2nd Sister.jpg';" alt="Divya & Yuvraj" loading="lazy">
+                <div class="person-title">Groom's 2nd Sister</div>
+                <h3 class="person-name">Divya &amp; Yuvraj</h3>
+            </div>
+        </div>
+
+        <!-- Bride's Family -->
+        <h3 style="color:var(--maroon); font-size:22px; margin: 35px 0 10px; font-weight: normal;">— Bride's Family —</h3>
+        <div class="couple-grid" style="justify-content: center; max-width: 450px; margin: 10px auto 0;">
+            <!-- Bride's Brother & Sister-in-law -->
+            <div class="person-card">
+                <img src="Bride's Brother.png" onerror="this.onerror=null; this.src='Bride\'s Brother.jpeg'; if(!this.src) this.src='Bride\'s Brother.jpg';" alt="Aravind & Yamuna" loading="lazy">
+                <div class="person-title">Bride's Brother &amp; Sister-in-law</div>
+                <h3 class="person-name">Aravind &amp; Yamuna</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Little Angels (Kids) Section -->
+    <section id="kids">
+        <h2 class="section-title">✨ Little Angels of Our Family ✨</h2>
+        <div class="orn">✦ ✦ ✦</div>
+
+        <div class="kids-grid">
+            <!-- Tanesh & Tarunikaa -->
+            <div class="kid-card">
+                <img src="Tanesh & Tarunikaa.png" onerror="this.onerror=null; this.src='Tanesh & Tarunikaa.jpeg'; if(!this.src) this.src='Tanesh & Tarunikaa.jpg';" alt="Tanesh & Tarunikaa" loading="lazy">
+                <div class="kid-name">Tanesh &amp; Tarunikaa</div>
+            </div>
+
+            <!-- Nilanika -->
+            <div class="kid-card">
+                <img src="Nila.png" onerror="this.onerror=null; this.src='Nila.jpeg'; if(!this.src) this.src='Nila.jpg';" alt="Nilanika" loading="lazy">
+                <div class="kid-name">Nilanika</div>
+            </div>
+
+            <!-- Aradhya -->
+            <div class="kid-card">
+                <img src="Aradhya.png" onerror="this.onerror=null; this.src='Aradhya.jpeg'; if(!this.src) this.src='Aradhya.jpg';" alt="Aradhya" loading="lazy">
+                <div class="kid-name">Aradhya</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events">
+        <h2 class="section-title">Celebration Details</h2>
+        <div class="orn">✦ ✦ ✦</div>
+
+        <div class="card-grid">
+            <!-- Reception Card -->
+            <div class="card">
+                <h3 style="color:var(--maroon); margin-top:0;">🎉 Reception</h3>
+                <p style="color:var(--gold); font-size:22px; font-weight:bold; margin: 10px 0;">12-11-2026</p>
+                <p style="font-weight: bold;">Thursday • 06:00 PM onwards</p>
+                
+                <div class="venue-text">
+                    <p style="margin: 5px 0;"><strong>Venue:</strong></p>
+                    <p style="margin: 0;">Rajkala Palace, Veppanapalli,</p>
+                    <p style="margin: 0;">Krishnagiri district, Tamil Nadu, 635121</p>
+                </div>
+
+                <a class="btn" href="https://maps.google.com/?q=Rajkala+Palace+Veppanapalli+Krishnagiri" target="_blank" rel="noopener">📍 View Location</a>
+            </div>
+
+            <!-- Wedding Card -->
+            <div class="card">
+                <h3 style="color:var(--maroon); margin-top:0;">💍 Muhurtham</h3>
+                <p style="color:var(--gold); font-size:22px; font-weight:bold; margin: 10px 0;">13-11-2026</p>
+                <p style="font-weight: bold;">Friday • 06:00 AM to 07:30 AM</p>
+                
+                <div class="venue-text">
+                    <p style="margin: 5px 0;"><strong>Venue:</strong></p>
+                    <p style="margin: 0;">Rajkala Palace, Veppanapalli,</p>
+                    <p style="margin: 0;">Krishnagiri district, Tamil Nadu, 635121</p>
+                </div>
+
+                <a class="btn" href="https://maps.google.com/?saddr=Current+Location&daddr=Rajkala+Palace+Veppanapalli+Krishnagiri" target="_blank" rel="noopener">🧭 Get Directions</a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- Action Options Section -->
+<section>
+    <h2 class="section-title">Invitation Options</h2>
+    <div class="orn">✦ ✦ ✦</div>
+
+    <div class="actions-grid">
+        <!-- Add to Calendar -->
+        <div class="action-box">
+            <div style="font-size:30px;">📅</div>
+            <h4>Add to Calendar</h4>
+            <p>Save the muhurtham to your phone calendar</p>
+            <button class="btn" onclick="addToCalendar()">Add Event</button>
+        </div>
+
+        <!-- Download Card -->
+        <div class="action-box">
+            <div style="font-size:30px;">🖼</div>
+            <h4>Download Card</h4>
+            <p>Save the invitation card as an image</p>
+            <button class="btn" onclick="downloadCardImage()">Download</button>
+        </div>
+
+        <!-- Venue QR Codes -->
+        <div class="action-box">
+            <div style="font-size:30px;">📲</div>
+            <h4>Venue QR Code</h4>
+            <p>Scan for directions to the venue</p>
+            <button class="btn" onclick="showQRCode()">Show QR</button>
+        </div>
+
+        <!-- Share Invite -->
+        <div class="action-box">
+            <div style="font-size:30px;">💌</div>
+            <h4>Share Invite</h4>
+            <p>Send to family &amp; friends</p>
+            <button class="btn" onclick="shareWhatsApp()">Share Link</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>We look forward to welcoming you and celebrating together!</p>
+</footer>
+
+<!-- QR Code Modal Window -->
+<div class="qr-modal" id="qrModal">
+    <div class="qr-card">
+        <h3 style="color:var(--maroon); margin-top:0;">Scan for Venue Directions</h3>
+        <div id="qrcode"></div>
+        <p style="font-size:12px; color:#555;">Rajkala Palace, Veppanapalli</p>
+        <button class="btn" onclick="hideQRCode()">Close</button>
+    </div>
+</div>
+
+<!-- Background Audio -->
+<audio id="bgMusic" loop preload="none">
+    <source src="bgmusic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Countdown Calculation
+const weddingTime = new Date("November 13, 2026 06:00:00").getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = weddingTime - now;
+
+    if (diff > 0) {
+        document.getElementById('cd-days').innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+        document.getElementById('cd-hours').innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+        document.getElementById('cd-mins').innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+        document.getElementById('cd-secs').innerText = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+    }
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Audio & Intro Screen Controls
+const audio = document.getElementById('bgMusic');
+let isPlaying = false;
+
+function startExperience() {
+    document.getElementById('muruganOpen').classList.add('closed');
+    document.body.classList.remove('modal-active');
+    
+    // Explicitly scroll to top of main landing slide
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    
+    toggleMusic();
+}
+
+function toggleMusic() {
+    if (isPlaying) {
+        audio.pause();
+        document.getElementById('musicBtn').innerText = "🔇";
+        isPlaying = false;
+    } else {
+        audio.play().catch(() => {});
+        document.getElementById('musicBtn').innerText = "🎵";
+        isPlaying = true;
+    }
+}
+
+// Full Card Image Capture & Download
+function downloadCardImage() {
+    const cardArea = document.getElementById('downloadableCard');
+    alert('Generating your invitation card image... Please wait a moment.');
+    html2canvas(cardArea, { useCORS: true, scale: 2 }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'Vadivel-Dhivya-Wedding-Invitation.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    });
+}
+
+// Google Calendar Event Link
+function addToCalendar() {
+    const title = encodeURIComponent("Vadivel & Dhivya Wedding");
+    const details = encodeURIComponent("Muhurtham Ceremony at Rajkala Palace, Veppanapalli.");
+    const location = encodeURIComponent("Rajkala Palace, Veppanapalli, Krishnagiri district, Tamil Nadu, 635121");
+    const calUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20261113T003000Z/20261113T020000Z&details=${details}&location=${location}`;
+    window.open(calUrl, '_blank');
+}
+
+// QR Code Modal Generator
+let qrGenerated = false;
+function showQRCode() {
+    document.getElementById('qrModal').classList.add('active');
+    if (!qrGenerated) {
+        new QRCode(document.getElementById("qrcode"), {
+            text: "https://maps.google.com/?saddr=Current+Location&daddr=Rajkala+Palace+Veppanapalli+Krishnagiri",
+            width: 160,
+            height: 160
+        });
+        qrGenerated = true;
+    }
+}
+function hideQRCode() {
+    document.getElementById('qrModal').classList.remove('active');
+}
+
+// WhatsApp Sharing
+function shareWhatsApp() {
+    const text = encodeURIComponent("You're cordially invited to the wedding of Vadivel & Dhivya!\nView Invitation: " + window.location.href);
+    window.open("https://api.whatsapp.com/send?text=" + text, "_blank");
+}
+</script>
+</body>
+</html>
