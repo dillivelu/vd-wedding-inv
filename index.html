@@ -386,13 +386,17 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
 }
 .kid-card img {
     width: 100%;
-    height: 310px;
+    height: 340px;
     object-fit: cover;
     object-position: 50% 15%;
     border-radius: 12px;
     border: 2px solid var(--gold);
     background-color: #f2e3d5;
     display: block;
+}
+.kid-card img.aradhya-img {
+    object-fit: cover;
+    object-position: 50% 90%; /* Covers full frame edge-to-edge while preserving face & feet */
 }
 .kid-name { color: var(--maroon); font-size: 20px; margin: 12px 0 4px; font-weight: 600; }
 
@@ -739,7 +743,7 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
 
             <!-- Aradhya -->
             <div class="kid-card">
-                <img src="Aradhya.png" onerror="this.onerror=null; this.src='Aradhya.jpeg'; if(!this.src) this.src='Aradhya.jpg';" alt="Aradhya" loading="lazy" style="object-fit: contain; object-position: center; background-color: #FAF2E3;">
+                <img class="aradhya-img" src="Aradhya.png" onerror="this.onerror=null; this.src='Aradhya.jpeg'; if(!this.src) this.src='Aradhya.jpg';" alt="Aradhya" loading="lazy">
                 <div class="kid-name">Aradhya</div>
             </div>
         </div>
