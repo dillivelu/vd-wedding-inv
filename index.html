@@ -368,7 +368,13 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
     background-color: #f2e3d5;
 }
 .person-title { color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: 12px; margin-top: 10px; }
-.person-name { color: var(--maroon); font-size: 22px; margin: 8px 0 4px; }
+.person-name { color: var(--maroon); font-size: clamp(18px, 4.5vw, 22px); margin: 8px 0 4px; line-height: 1.35; }
+
+/* Non-breaking single-line tag for Late */
+.nowrap-late {
+    white-space: nowrap;
+    display: inline-block;
+}
 
 /* Kids Grid Styling */
 .kids-grid {
@@ -397,7 +403,7 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
 .kid-card img.aradhya-img {
     height: 360px;
     object-fit: cover;
-    object-position: 50% 25%; /* Completely shows head, face, dress & feet with zero side gaps */
+    object-position: 50% 25%;
 }
 .kid-name { color: var(--maroon); font-size: 20px; margin: 12px 0 4px; font-weight: 600; }
 
@@ -662,7 +668,7 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
                 <img src="Bride 01 photo.jpeg" onerror="this.onerror=null; this.src='Bride 01 photo.jpg';" alt="Dhivya P" loading="lazy">
                 <div class="person-title">The Bride</div>
                 <h3 class="person-name">Dhivya P</h3>
-                <p>Daughter of Mr. Palanivel S &amp;<br>Mrs. Malliga Palanivel <span style="font-size: 0.85em; opacity: 0.85;">(Late)</span></p>
+                <p>Daughter of Mr. Palanivel S &amp;<br>Mrs. Malliga Palanivel <span class="nowrap-late"><span style="font-size: 0.8em; opacity: 0.85;">(Late)</span></span></p>
             </div>
         </div>
     </section>
@@ -684,7 +690,7 @@ section { padding: 50px 18px; max-width: 900px; margin: auto; text-align: center
             <div class="person-card">
                 <img src="Bride's Parents.png" onerror="this.onerror=null; this.src='Bride\'s Parents.jpeg'; if(!this.src) this.src='Bride\'s Parents.jpg';" alt="Bride's Parents" loading="lazy">
                 <div class="person-title">Bride's Parents</div>
-                <h3 class="person-name">Mr. Palanivel S &amp;<br>Mrs. Malliga Palanivel <span style="font-size: 0.85em; opacity: 0.85;">(Late)</span></h3>
+                <h3 class="person-name">Mr. Palanivel S &amp;<br><span class="nowrap-late">Mrs. Malliga Palanivel <span style="font-size: 0.8em; opacity: 0.85;">(Late)</span></span></h3>
             </div>
         </div>
     </section>
